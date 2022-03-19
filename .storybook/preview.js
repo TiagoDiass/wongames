@@ -15,12 +15,6 @@ export const decorators = [
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
-  controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/
-    }
-  },
   backgrounds: {
     default: 'Light',
     values: [
@@ -28,5 +22,11 @@ export const parameters = {
       { name: 'Dark', value: '#2E2F42' },
       { name: 'Light Blue', value: '#5DADE2' }
     ]
+  },
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/
+    }
   }
 };
