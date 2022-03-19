@@ -7,3 +7,9 @@ export default {
 } as ComponentMeta<typeof Logo>;
 
 export const Basic: ComponentStory<typeof Logo> = (args) => <Logo {...args} />;
+
+Basic.parameters = {
+  backgrounds: {
+    default: 'Dark'
+  }
+};

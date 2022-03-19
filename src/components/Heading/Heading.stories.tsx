@@ -15,3 +15,8 @@ export const Basic: ComponentStory<typeof Heading> = (args) => <Heading {...args
 Basic.args = {
   children: 'Example Heading'
 };
+Basic.parameters = {
+  backgrounds: {
+    default: 'Dark'
+  }
+};
