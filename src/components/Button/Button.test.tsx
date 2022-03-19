@@ -1,7 +1,9 @@
 import Button from './Button';
 import { renderWithTheme } from 'utils/test-utils';
-import { screen } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import theme from 'styles/theme';
+import { AddShoppingCart } from 'styled-icons/material-outlined';
 
 const getButton = () => screen.getByRole('button', { name: 'Buy now' });
 
@@ -39,5 +41,24 @@ describe('Component: Button', () => {
     renderWithTheme(<Button fullWidth>Buy now</Button>);
 
     expect(getButton()).toHaveStyleRule('width', '100%');
+  });
+
+  it('should render a button with an icon when specified', () => {
+    renderWithTheme(<Button icon={<AddShoppingCart data-testid='icon' />}>Buy now</Button>);
+
+    expect(getButton()).toBeInTheDocument();
+    expect(screen.getByTestId('icon')).toBeInTheDocument();
+  });
+
+  it('should call onClick() when user clicks on the button', async () => {
+    const onClickMock = jest.fn();
+
+    renderWithTheme(<Button onClick={onClickMock}>Buy now</Button>);
+
+    userEvent.click(getButton());
+
+    await waitFor(() => {
+      expect(onClickMock).toHaveBeenCalledTimes(1);
+    });
   });
 });

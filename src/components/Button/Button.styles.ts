@@ -21,25 +21,44 @@ const wrapperModifiers = {
 
   fullWidth: () => css`
     width: 100%;
+  `,
+
+  withIcon: (theme: DefaultTheme) => css`
+    display: inline-flex
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 1.6rem;
+
+      & + span {
+        margin-left: ${theme.spacings.xxsmall};
+      }
+    }
   `
 };
 
-type WrapperProps = Pick<ButtonProps, 'size' | 'fullWidth'>;
+type WrapperProps = {
+  hasIcon: boolean;
+} & Pick<ButtonProps, 'size' | 'fullWidth'>;
 
 export const Wrapper = styled.button<WrapperProps>`
-  ${({ theme, size, fullWidth }) => css`
+  ${({ theme, size, fullWidth, hasIcon }) => css`
     background: linear-gradient(180deg, #ff5f5f 0%, #f062c0 50%);
     color: ${theme.colors.white};
     border: none;
     border-radius: ${theme.border.radius};
     outline: none;
     padding: ${theme.spacings.xxsmall};
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
 
     ${!!size && wrapperModifiers[size](theme)};
     ${!!fullWidth && wrapperModifiers.fullWidth()}
+    ${!!hasIcon && wrapperModifiers.withIcon(theme)};
+
+    &:hover {
+      filter: brightness(0.95);
+    }
   `}
 `;
