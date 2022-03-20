@@ -19,20 +19,20 @@ describe('Component: Menu', () => {
     const fullMenuElement = screen.getByRole('navigation', { hidden: true });
 
     expect(fullMenuElement).toHaveAttribute('aria-hidden', 'true');
-    expect(fullMenuElement).toHaveStyle({ opacity: 0, display: 'none' });
+    expect(fullMenuElement).toHaveStyle({ opacity: 0 });
 
     userEvent.click(screen.getByLabelText(/open menu/i));
 
     await waitFor(() => {
       expect(fullMenuElement).toHaveAttribute('aria-hidden', 'false');
-      expect(fullMenuElement).toHaveStyle({ opacity: 1, display: 'block' });
+      expect(fullMenuElement).toHaveStyle({ opacity: 1 });
     });
 
     userEvent.click(screen.getByLabelText(/close menu/i));
 
     await waitFor(() => {
       expect(fullMenuElement).toHaveAttribute('aria-hidden', 'true');
-      expect(fullMenuElement).toHaveStyle({ opacity: 0, display: 'none' });
+      expect(fullMenuElement).toHaveStyle({ opacity: 0 });
     });
   });
 });

@@ -5,7 +5,7 @@ import {
   Close as CloseIcon
 } from 'styled-icons/material-outlined';
 import { Menu2 as MenuIcon } from 'styled-icons/remix-fill';
-import { Logo } from 'components';
+import { Logo, Button } from 'components';
 import { useState } from 'react';
 
 /**
@@ -38,9 +38,22 @@ export default function Menu() {
       </S.MenuGroup>
 
       <S.MenuFull aria-hidden={!isFullMenuOpen} isMenuOpen={isFullMenuOpen}>
-        <S.IconWrapper>
-          <CloseIcon aria-label='Close menu' onClick={handleCloseFullMenu} />
-        </S.IconWrapper>
+        <CloseIcon aria-label='Close menu' onClick={handleCloseFullMenu} />
+
+        <S.MenuNavigation>
+          <S.MenuLink href='#'>Home</S.MenuLink>
+          <S.MenuLink href='#'>Explore</S.MenuLink>
+        </S.MenuNavigation>
+
+        <S.RegisterBox>
+          <Button fullWidth size='large'>
+            Log in now
+          </Button>
+          <span>or</span>
+          <S.SignUpLink href='#' title='Sign Up'>
+            Sign up
+          </S.SignUpLink>
+        </S.RegisterBox>
       </S.MenuFull>
     </S.Wrapper>
   );
