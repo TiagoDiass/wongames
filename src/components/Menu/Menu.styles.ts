@@ -30,18 +30,24 @@ export const IconWrapper = styled.div`
 export const MenuGroup = styled.div`
   ${({ theme }) => css`
     display: flex;
+    align-items: center;
     flex-grow: 1;
     justify-content: flex-end;
     column-gap: ${theme.spacings.xsmall};
   `}
 `;
 
-export const MenuNavigation = styled.div``;
+export const MenuNavigation = styled.div`
+  ${media.greaterThan('medium')`
+    margin-left: ${(p) => p.theme.spacings.small}
+  `}
+`;
 
 export const MenuLink = styled.a`
   ${({ theme }) => css`
     position: relative;
     font-size: ${theme.font.sizes.medium};
+    color: ${theme.colors.white};
     margin: 0.3rem ${theme.spacings.small} 0;
     text-decoration: none;
     text-align: center;
