@@ -61,4 +61,14 @@ describe('Component: Button', () => {
       expect(onClickMock).toHaveBeenCalledTimes(1);
     });
   });
+
+  it('should render the button as a link', () => {
+    renderWithTheme(
+      <Button as='a' href='/link'>
+        Buy now
+      </Button>
+    );
+
+    expect(screen.getByRole('link', { name: 'Buy now' })).toHaveAttribute('href', '/link');
+  });
 });
