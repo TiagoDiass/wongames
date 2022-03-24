@@ -23,3 +23,12 @@ withIcon.args = {
   children: 'Buy now',
   icon: <AddShoppingCart />
 };
+
+export const asLink: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+asLink.storyName = 'As a Link';
+asLink.args = {
+  as: 'a',
+  href: 'https://www.example.com',
+  target: '_blank',
+  children: 'Sign in'
+};

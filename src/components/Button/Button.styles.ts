@@ -24,10 +24,6 @@ const wrapperModifiers = {
   `,
 
   withIcon: (theme: DefaultTheme) => css`
-    display: inline-flex
-    align-items: center;
-    justify-content: center;
-
     svg {
       width: 1.6rem;
 
@@ -44,8 +40,13 @@ type WrapperProps = {
 
 export const Wrapper = styled.button<WrapperProps>`
   ${({ theme, size, fullWidth, hasIcon }) => css`
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
     background: linear-gradient(180deg, #ff5f5f 0%, #f062c0 50%);
     color: ${theme.colors.white};
+    text-decoration: none;
     border: none;
     border-radius: ${theme.border.radius};
     outline: none;
