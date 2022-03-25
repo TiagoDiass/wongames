@@ -8,11 +8,16 @@ export default {
     title: 'Red Dead is back',
     subtitle: "Come see Arthur's new adventures",
     buttonLabel: 'Buy now',
-    buttonLink: '/games/rdr2'
+    buttonLink: '/games/rdr2',
+    backgroundImage: '/img/red-dead-background.jpg'
   },
   parameters: {
     layout: 'fullscreen'
   }
 } as ComponentMeta<typeof Highlight>;
 
-export const Basic: ComponentStory<typeof Highlight> = (args) => <Highlight {...args} />;
+export const Basic: ComponentStory<typeof Highlight> = (args) => (
+  <div style={{ maxWidth: '104rem', margin: '0 auto' }}>
+    <Highlight {...args} />
+  </div>
+);

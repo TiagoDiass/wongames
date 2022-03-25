@@ -6,7 +6,8 @@ const HIGHLIGHT_PROPS: HighlightProps = {
   title: 'Heading 1',
   subtitle: 'Heading 2',
   buttonLabel: 'Buy now',
-  buttonLink: '/games/rdr2'
+  buttonLink: '/games/rdr2',
+  backgroundImage: '/img/example.jpg'
 } as const;
 
 describe('Component: Highlight', () => {
@@ -16,5 +17,13 @@ describe('Component: Highlight', () => {
     expect(screen.getByRole('heading', { name: HIGHLIGHT_PROPS.title })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: HIGHLIGHT_PROPS.subtitle })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Buy now' })).toBeInTheDocument();
+  });
+
+  it('should render a background image', () => {
+    const { container } = renderWithTheme(<Highlight {...HIGHLIGHT_PROPS} />);
+
+    expect(container.firstChild).toHaveStyle({
+      backgroundImage: `url(${HIGHLIGHT_PROPS.backgroundImage})`
+    });
   });
 });
