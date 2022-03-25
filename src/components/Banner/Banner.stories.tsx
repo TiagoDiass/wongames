@@ -12,9 +12,34 @@ export default {
     buttonLabel: 'Buy now',
     buttonLink: '/games/defy-death'
   },
+
   parameters: {
     layout: 'fullscreen'
   }
 } as ComponentMeta<typeof Banner>;
 
-export const Basic: ComponentStory<typeof Banner> = (args) => <Banner {...args} />;
+export const Basic: ComponentStory<typeof Banner> = (args) => (
+  <div
+    style={{
+      maxWidth: '104rem',
+      margin: '0 auto'
+    }}
+  >
+    <Banner {...args} />
+  </div>
+);
+
+export const withRibbon: ComponentStory<typeof Banner> = (args) => (
+  <div
+    style={{
+      maxWidth: '104rem',
+      margin: '0 auto'
+    }}
+  >
+    <Banner {...args} />
+  </div>
+);
+
+withRibbon.args = {
+  ribbon: { children: '30% OFF', color: 'primary', size: 'normal' }
+};
