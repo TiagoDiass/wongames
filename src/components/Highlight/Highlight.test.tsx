@@ -26,4 +26,13 @@ describe('Component: Highlight', () => {
       backgroundImage: `url(${HIGHLIGHT_PROPS.backgroundImage})`
     });
   });
+
+  it('should render a float image', () => {
+    renderWithTheme(<Highlight {...HIGHLIGHT_PROPS} floatImage='/float-image.png' />);
+
+    expect(screen.getByRole('img', { name: HIGHLIGHT_PROPS.title })).toHaveAttribute(
+      'src',
+      '/float-image.png'
+    );
+  });
 });

@@ -21,3 +21,14 @@ export const Basic: ComponentStory<typeof Highlight> = (args) => (
     <Highlight {...args} />
   </div>
 );
+
+export const WithFloatImage: ComponentStory<typeof Highlight> = (args) => (
+  <div style={{ maxWidth: '104rem', margin: '0 auto' }}>
+    <Highlight {...args} />
+  </div>
+);
+
+WithFloatImage.storyName = 'With a floating image';
+WithFloatImage.args = {
+  floatImage: '/img/red-dead-float.png'
+};
