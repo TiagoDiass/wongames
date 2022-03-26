@@ -1,4 +1,5 @@
 import Highlight, { HighlightProps } from './Highlight';
+import * as S from './Highlight.styles';
 import { renderWithTheme } from 'utils/test-utils';
 import { screen } from '@testing-library/react';
 
@@ -34,5 +35,27 @@ describe('Component: Highlight', () => {
       'src',
       '/float-image.png'
     );
+  });
+
+  it('should render right aligned by default', () => {
+    const { container } = renderWithTheme(
+      <Highlight {...HIGHLIGHT_PROPS} floatImage='/float-image.png' />
+    );
+
+    expect(container.firstChild).toHaveStyleRule('grid-template-areas', "'floatimage content'");
+    expect(container.firstChild).toHaveStyleRule('text-align', 'right', {
+      modifier: `${S.Content}`
+    });
+  });
+
+  it('should render left aligned when specified', () => {
+    const { container } = renderWithTheme(
+      <Highlight {...HIGHLIGHT_PROPS} floatImage='/float-image.png' alignment='left' />
+    );
+
+    expect(container.firstChild).toHaveStyleRule('grid-template-areas', "'content floatimage'");
+    expect(container.firstChild).toHaveStyleRule('text-align', 'left', {
+      modifier: `${S.Content}`
+    });
   });
 });
