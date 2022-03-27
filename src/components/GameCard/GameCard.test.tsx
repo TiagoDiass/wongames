@@ -6,7 +6,7 @@ const GAMECARD_PROPS: GameCardProps = {
   title: 'Red Dead Redemption 2',
   developer: 'Rockstar Games',
   image: '/img/red-dead-gamecard.png',
-  price: '$215,00'
+  price: '$225,00'
 } as const;
 
 describe('Component: GameCard', () => {
