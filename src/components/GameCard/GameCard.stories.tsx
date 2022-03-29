@@ -29,7 +29,10 @@ export const Promotional: ComponentStory<typeof GameCard> = (args) => (
   </div>
 );
 
-Promotional.storyName = 'With a promotional price';
+Promotional.storyName = 'Promotional price';
 Promotional.args = {
+  title: 'Resident Evil 3',
+  developer: 'Capcom',
+  image: '/img/resident-evil-gamecard.png',
   promotionalPrice: '$150,00'
 };
