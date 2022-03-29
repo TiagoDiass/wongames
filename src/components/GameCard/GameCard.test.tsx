@@ -27,15 +27,11 @@ describe('Component: GameCard', () => {
   it('should render price in label when its not promotional', () => {
     renderWithTheme(<GameCard {...GAMECARD_PROPS} />);
 
-    expect(screen.getByText(GAMECARD_PROPS.price)).toHaveStyleRule(
-      'background-color',
-      theme.colors.secondary
-    );
-    expect(screen.getByText(GAMECARD_PROPS.price)).not.toHaveStyleRule('color', theme.colors.gray);
-    expect(screen.getByText(GAMECARD_PROPS.price)).not.toHaveStyleRule(
-      'text-decoration',
-      'line-through'
-    );
+    const priceElement = screen.getByText(GAMECARD_PROPS.price);
+
+    expect(priceElement).toHaveStyleRule('background-color', theme.colors.secondary);
+    expect(priceElement).not.toHaveStyleRule('color', theme.colors.gray);
+    expect(priceElement).not.toHaveStyleRule('text-decoration', 'line-through');
   });
 
   it('should render a line-trough when game is with promotional a price', () => {
