@@ -1,7 +1,8 @@
 import GameCard, { GameCardProps } from './GameCard';
 import { renderWithTheme } from 'utils/test-utils';
-import { screen } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import theme from 'styles/theme';
+import userEvent from '@testing-library/user-event';
 
 const GAMECARD_PROPS: GameCardProps = {
   title: 'Red Dead Redemption 2',
@@ -43,6 +44,25 @@ describe('Component: GameCard', () => {
 
     expect(screen.getByText('$15,00')).not.toHaveStyle({
       textDecoration: 'line-through'
+    });
+  });
+
+  it('should render a filled favorite icon when game is favorited', () => {
+    renderWithTheme(<GameCard {...GAMECARD_PROPS} favorite />);
+
+    expect(screen.queryByLabelText('Add to Wishlist')).not.toBeInTheDocument();
+    expect(screen.getByLabelText('Remove from Wishlist')).toBeInTheDocument();
+  });
+
+  it('should call onFavorite() when user clicks on the favorite icon', async () => {
+    const onFavoriteMock = jest.fn();
+
+    renderWithTheme(<GameCard {...GAMECARD_PROPS} onFavorite={onFavoriteMock} />);
+
+    userEvent.click(screen.getByLabelText('Add to Wishlist'));
+
+    await waitFor(() => {
+      expect(onFavoriteMock).toHaveBeenCalledTimes(1);
     });
   });
 });

@@ -8,7 +8,13 @@ export default {
     title: 'Red Dead Redemption 2',
     developer: 'Rockstar Games',
     image: '/img/red-dead-gamecard.png',
-    price: '$215,00'
+    price: '$215,00',
+    favorite: false
+  },
+  argTypes: {
+    onFavorite: {
+      action: 'clicked'
+    }
   },
   parameters: {
     backgrounds: {
