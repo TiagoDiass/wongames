@@ -10,12 +10,19 @@ export type GameCardProps = {
   developer: string;
   image: string;
   price: string;
+  promotionalPrice?: string;
 };
 
 /**
  * Component used to show the main information about a game
  */
-export default function GameCard({ title, developer, image, price }: GameCardProps) {
+export default function GameCard({
+  title,
+  developer,
+  image,
+  price,
+  promotionalPrice
+}: GameCardProps) {
   return (
     <S.Wrapper>
       <S.ImageBox>
@@ -33,7 +40,8 @@ export default function GameCard({ title, developer, image, price }: GameCardPro
         </S.FavoriteButton>
 
         <S.PricingBox>
-          <S.Price>{price}</S.Price>
+          {!!promotionalPrice && <S.Price isPromotional>{price}</S.Price>}
+          <S.Price>{promotionalPrice || price}</S.Price>
           <Button icon={<AddShoppingCart />} size='small' />
         </S.PricingBox>
       </S.Content>

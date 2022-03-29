@@ -1,12 +1,13 @@
 import GameCard, { GameCardProps } from './GameCard';
 import { renderWithTheme } from 'utils/test-utils';
 import { screen } from '@testing-library/react';
+import theme from 'styles/theme';
 
 const GAMECARD_PROPS: GameCardProps = {
   title: 'Red Dead Redemption 2',
   developer: 'Rockstar Games',
   image: '/img/red-dead-gamecard.png',
-  price: '$225,00'
+  price: '$235,00'
 } as const;
 
 describe('Component: GameCard', () => {
@@ -21,5 +22,31 @@ describe('Component: GameCard', () => {
     );
     expect(screen.getByText(GAMECARD_PROPS.price)).toBeInTheDocument();
     expect(screen.getByLabelText('Add to Wishlist')).toBeInTheDocument();
+  });
+
+  it('should render price in label when its not promotional', () => {
+    renderWithTheme(<GameCard {...GAMECARD_PROPS} />);
+
+    expect(screen.getByText(GAMECARD_PROPS.price)).toHaveStyleRule(
+      'background-color',
+      theme.colors.secondary
+    );
+    expect(screen.getByText(GAMECARD_PROPS.price)).not.toHaveStyleRule('color', theme.colors.gray);
+    expect(screen.getByText(GAMECARD_PROPS.price)).not.toHaveStyleRule(
+      'text-decoration',
+      'line-through'
+    );
+  });
+
+  it('should render a line-trough when game is with promotional a price', () => {
+    renderWithTheme(<GameCard {...GAMECARD_PROPS} promotionalPrice='$15,00' />);
+
+    expect(screen.getByText(GAMECARD_PROPS.price)).toHaveStyle({
+      textDecoration: 'line-through'
+    });
+
+    expect(screen.getByText('$15,00')).not.toHaveStyle({
+      textDecoration: 'line-through'
+    });
   });
 });
