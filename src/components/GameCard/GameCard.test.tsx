@@ -63,4 +63,25 @@ describe('Component: GameCard', () => {
 
     expect(onFavoriteMock).toHaveBeenCalledTimes(1);
   });
+
+  it('should render correctly with a Ribbon', () => {
+    renderWithTheme(
+      <GameCard
+        {...GAMECARD_PROPS}
+        ribbon={{ children: 'My Ribbon', color: 'secondary', size: 'small' }}
+      />
+    );
+
+    const ribbonElement = screen.getByText('My Ribbon');
+
+    expect(ribbonElement).toBeInTheDocument();
+    expect(ribbonElement).toHaveStyle({
+      // Ribbon color
+      backgroundColor: theme.colors.secondary,
+
+      // Ribbon size
+      height: '2.6rem',
+      fontSize: theme.font.sizes.xsmall
+    });
+  });
 });

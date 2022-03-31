@@ -42,3 +42,20 @@ Promotional.args = {
   image: '/img/resident-evil-gamecard.png',
   promotionalPrice: '$150,00'
 };
+
+export const withRibbon: ComponentStory<typeof GameCard> = (args) => (
+  <div
+    style={{
+      maxWidth: '30rem'
+    }}
+  >
+    <GameCard {...args} />
+  </div>
+);
+
+withRibbon.args = {
+  ribbon: { children: '50% OFF', color: 'primary', size: 'small' },
+  ...Promotional.args,
+  price: '$200,00',
+  promotionalPrice: '$100,00'
+};

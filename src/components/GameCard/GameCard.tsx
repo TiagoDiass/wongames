@@ -4,7 +4,8 @@ import {
   Favorite as FavoriteIcon,
   AddShoppingCart
 } from 'styled-icons/material-outlined';
-import { Button } from 'components';
+import { Button, Ribbon } from 'components';
+import { RibbonProps } from 'components/Ribbon/Ribbon';
 
 export type GameCardProps = {
   title: string;
@@ -14,6 +15,7 @@ export type GameCardProps = {
   promotionalPrice?: string;
   favorite?: boolean;
   onFavorite?: () => void;
+  ribbon?: RibbonProps;
 };
 
 /**
@@ -26,10 +28,13 @@ export default function GameCard({
   price,
   promotionalPrice,
   favorite = false,
-  onFavorite
+  onFavorite,
+  ribbon
 }: GameCardProps) {
   return (
     <S.Wrapper>
+      {!!ribbon && <Ribbon {...ribbon} size={ribbon.size || 'small'} />}
+
       <S.ImageBox>
         <img src={image} alt={title} />
       </S.ImageBox>
