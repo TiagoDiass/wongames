@@ -1,6 +1,6 @@
 import GameCard, { GameCardProps } from './GameCard';
 import { renderWithTheme } from 'utils/test-utils';
-import { screen, waitFor } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import theme from 'styles/theme';
 import userEvent from '@testing-library/user-event';
 
@@ -54,15 +54,13 @@ describe('Component: GameCard', () => {
     expect(screen.getByLabelText('Remove from Wishlist')).toBeInTheDocument();
   });
 
-  it('should call onFavorite() when user clicks on the favorite icon', async () => {
+  it('should call onFavorite() when user clicks on the favorite icon', () => {
     const onFavoriteMock = jest.fn();
 
     renderWithTheme(<GameCard {...GAMECARD_PROPS} onFavorite={onFavoriteMock} />);
 
     userEvent.click(screen.getByLabelText('Add to Wishlist'));
 
-    await waitFor(() => {
-      expect(onFavoriteMock).toHaveBeenCalledTimes(1);
-    });
+    expect(onFavoriteMock).toHaveBeenCalledTimes(1);
   });
 });
