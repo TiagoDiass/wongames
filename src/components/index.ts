@@ -1,8 +1,13 @@
+export { default as Banner } from './Banner/Banner';
+// export { default as BannerSlider } from './BannerSlider/BannerSlider';
 export { default as Button } from './Button/Button';
 export { default as Footer } from './Footer/Footer';
+export { default as GameCard } from './GameCard/GameCard';
 export { default as Heading } from './Heading/Heading';
+export { default as Highlight } from './Highlight/Highlight';
 export { default as Logo } from './Logo/Logo';
 export { default as Main } from './Main/Main';
 export { default as MediaMatch } from './MediaMatch/MediaMatch';
 export { default as Menu } from './Menu/Menu';
 export { default as Ribbon } from './Ribbon/Ribbon';
+// export { default as Slider } from './Slider/Slider';
