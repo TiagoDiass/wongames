@@ -37,10 +37,11 @@ export const Promotional: ComponentStory<typeof GameCard> = (args) => (
 
 Promotional.storyName = 'Promotional price';
 Promotional.args = {
-  title: 'Resident Evil 3',
-  developer: 'Capcom',
-  image: '/img/resident-evil-gamecard.png',
-  promotionalPrice: '$150,00'
+  title: 'Project Winter',
+  developer: 'Other Ocean Group',
+  image: '/img/project-winter-gamecard.png',
+  price: '$70,00',
+  promotionalPrice: '$40,00'
 };
 
 export const withRibbon: ComponentStory<typeof GameCard> = (args) => (
@@ -54,8 +55,10 @@ export const withRibbon: ComponentStory<typeof GameCard> = (args) => (
 );
 
 withRibbon.args = {
-  ribbon: { children: '50% OFF', color: 'primary', size: 'small' },
-  ...Promotional.args,
+  title: 'Resident Evil 3',
+  developer: 'Capcom',
+  image: '/img/resident-evil-gamecard.png',
   price: '$200,00',
-  promotionalPrice: '$100,00'
+  promotionalPrice: '$100,00',
+  ribbon: { children: '50% OFF', color: 'primary', size: 'small' }
 };
