@@ -5,7 +5,10 @@ export default {
   title: 'BannerSlider',
   component: BannerSlider,
   parameters: {
-    layout: 'fullscreen'
+    layout: 'fullscreen',
+    backgrounds: {
+      default: 'Dark'
+    }
   },
   argTypes: {
     banners: {
@@ -44,7 +47,7 @@ const banners: BannerSliderProps['banners'] = [
 ];
 
 export const Basic: ComponentStory<typeof BannerSlider> = (args) => (
-  <div style={{ maxWidth: '104rem', margin: '0 auto' }}>
+  <div style={{ maxWidth: '130rem', margin: '0 auto' }}>
     <BannerSlider {...args} banners={banners} />
   </div>
 );
