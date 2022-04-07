@@ -66,7 +66,7 @@ const games: GameCardSliderProps['games'] = [
 ];
 
 export const Basic: ComponentStory<typeof GameCardSlider> = (args) => (
-  <div style={{ maxWidth: '130rem', margin: '0 auto' }}>
+  <div style={{ maxWidth: '130rem', margin: '2rem auto' }}>
     <GameCardSlider {...args} games={games} />
   </div>
 );
