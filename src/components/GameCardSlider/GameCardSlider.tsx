@@ -12,6 +12,7 @@ export type GameCardSliderProps = {
 };
 
 const settings: SliderSettings = {
+  arrows: true,
   nextArrow: <ArrowRight aria-label='next games' />,
   prevArrow: <ArrowLeft aria-label='previous games' />,
 

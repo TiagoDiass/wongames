@@ -4,16 +4,19 @@ import GameCardSlider, { GameCardSliderProps } from './GameCardSlider';
 export default {
   title: 'GameCardSlider',
   component: GameCardSlider,
-  argTypes: {
-    games: {
-      type: 'symbol'
-    }
-  },
   parameters: {
     layout: 'fullscreen',
     backgrounds: {
       default: 'Dark'
     }
+  },
+  argTypes: {
+    games: {
+      type: 'symbol'
+    }
+  },
+  args: {
+    arrowsColor: 'black'
   }
 } as ComponentMeta<typeof GameCardSlider>;
 
