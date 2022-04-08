@@ -1,16 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import Highlight from './Highlight';
+import HighlightMock from './Highlight.mock';
 
 export default {
   title: 'Highlight',
   component: Highlight,
-  args: {
-    title: 'Red Dead is back',
-    subtitle: "Come see Arthur's new adventures",
-    buttonLabel: 'Buy now',
-    buttonLink: '/games/rdr2',
-    backgroundImage: '/img/red-dead-background.jpg'
-  },
+  args: { ...HighlightMock },
   parameters: {
     layout: 'fullscreen'
   }
