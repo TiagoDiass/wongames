@@ -57,10 +57,10 @@ describe('Component: GameCardSlider', () => {
     expect(screen.getByLabelText('next games')).toBeInTheDocument();
   });
 
-  it('should render white arrows if arrowColors is specified', () => {
-    renderWithTheme(<GameCardSlider games={games} arrowsColor='white' />);
+  it('should render black arrows if arrowColors is specified', () => {
+    renderWithTheme(<GameCardSlider games={games} arrowsColor='black' />);
 
-    expect(screen.getByLabelText('previous games')).toHaveStyle({ color: theme.colors.white });
-    expect(screen.getByLabelText('next games')).toHaveStyle({ color: theme.colors.white });
+    expect(screen.getByLabelText('previous games')).toHaveStyle({ color: theme.colors.black });
+    expect(screen.getByLabelText('next games')).toHaveStyle({ color: theme.colors.black });
   });
 });

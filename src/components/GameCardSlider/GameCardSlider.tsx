@@ -55,7 +55,7 @@ const settings: SliderSettings = {
 /**
  * Component that mixes the GameCard component with the Slider component
  */
-export default function GameCardSlider({ games, arrowsColor = 'black' }: GameCardSliderProps) {
+export default function GameCardSlider({ games, arrowsColor = 'white' }: GameCardSliderProps) {
   return (
     <S.Wrapper arrowsColor={arrowsColor}>
       <Slider settings={settings}>
