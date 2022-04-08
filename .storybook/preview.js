@@ -6,7 +6,7 @@ export const decorators = [
   (Story) => (
     <>
       <ThemeProvider theme={theme}>
-        <GlobalStyles />
+        <GlobalStyles removeBackground />
         <Story />
       </ThemeProvider>
     </>
