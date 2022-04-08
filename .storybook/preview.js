@@ -18,8 +18,8 @@ export const parameters = {
   backgrounds: {
     default: 'Light',
     values: [
-      { name: 'Light', value: '#F2F2F2' },
-      { name: 'Dark', value: '#2E2F42' },
+      { name: 'Light', value: theme.colors.white },
+      { name: 'Dark', value: theme.colors.mainBg },
       { name: 'Light Blue', value: '#5DADE2' }
     ]
   },
