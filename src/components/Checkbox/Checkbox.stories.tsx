@@ -6,7 +6,13 @@ export default {
   component: Checkbox,
   args: {
     label: 'Keep me signed in',
-    labelFor: 'keepSignedIn'
+    labelFor: 'keepSignedIn',
+    labelColor: 'black'
+  },
+  argTypes: {
+    onCheck: {
+      action: 'checked'
+    }
   }
 } as ComponentMeta<typeof Checkbox>;
 
