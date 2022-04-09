@@ -87,4 +87,14 @@ describe('Component: Checkbox', () => {
       expect(screen.getByLabelText('Keep me signed in')).toBeChecked();
     });
   });
+
+  it('should be accessible with the tab key', async () => {
+    renderWithTheme(<Checkbox label='Checkbox label' labelFor='checkbox' />);
+
+    expect(document.body).toHaveFocus();
+
+    userEvent.tab();
+
+    expect(screen.getByLabelText('Checkbox label')).toHaveFocus();
+  });
 });

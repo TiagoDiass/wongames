@@ -4,10 +4,11 @@ import Checkbox from './Checkbox';
 export default {
   title: 'Checkbox',
   component: Checkbox,
-  args: {
-    label: 'Keep me signed in',
-    labelFor: 'keepSignedIn',
-    labelColor: 'black'
+  parameters: {
+    layout: 'fullscreen',
+    backgrounds: {
+      default: 'Dark'
+    }
   },
   argTypes: {
     onCheck: {
@@ -16,4 +17,12 @@ export default {
   }
 } as ComponentMeta<typeof Checkbox>;
 
-export const Basic: ComponentStory<typeof Checkbox> = (args) => <Checkbox {...args} />;
+export const Basic: ComponentStory<typeof Checkbox> = (args) => (
+  <div style={{ padding: 10, display: 'flex', flexDirection: 'column', rowGap: 10 }}>
+    <Checkbox name='category' label='Action' labelFor='action' isChecked {...args} />
+
+    <Checkbox name='category' label='Adventure' labelFor='adventure' {...args} />
+
+    <Checkbox name='category' label='Strategy' labelFor='strategy' {...args} />
+  </div>
+);
