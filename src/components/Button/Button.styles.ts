@@ -63,6 +63,10 @@ export const Wrapper = styled.button<WrapperProps>`
     cursor: pointer;
     transition: all 0.2s ease;
 
+    &:focus {
+      box-shadow: 0 0 0.5rem ${theme.colors.primary};
+    }
+
     &:hover {
       filter: brightness(0.9);
     }
