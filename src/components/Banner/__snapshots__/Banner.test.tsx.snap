@@ -67,8 +67,8 @@ exports[`Component: Banner should render correctly 1`] = `
 }
 
 .c5:hover {
-  -webkit-filter: brightness(0.95);
-  filter: brightness(0.95);
+  -webkit-filter: brightness(0.9);
+  filter: brightness(0.9);
 }
 
 @media (max-width:1170px) {

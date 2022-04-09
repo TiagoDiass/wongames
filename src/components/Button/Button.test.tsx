@@ -62,6 +62,19 @@ describe('Component: Button', () => {
     });
   });
 
+  it('should render a button in a minimal version when specified', () => {
+    renderWithTheme(
+      <Button minimal icon={<AddShoppingCart data-testid='icon' />}>
+        Buy now
+      </Button>
+    );
+
+    expect(getButton()).toHaveStyle({
+      background: 'none',
+      color: theme.colors.primary
+    });
+  });
+
   it('should render the button as a link', () => {
     renderWithTheme(
       <Button as='a' href='/link'>

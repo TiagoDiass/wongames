@@ -32,3 +32,10 @@ asLink.args = {
   target: '_blank',
   children: 'Sign in'
 };
+
+export const Minimal: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+Minimal.args = {
+  children: 'Buy now',
+  icon: <AddShoppingCart />,
+  minimal: true
+};
