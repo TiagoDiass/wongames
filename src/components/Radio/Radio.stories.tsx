@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { useState } from 'react';
-import { RadioGroupProps } from './Group/RadioGroup';
 import Radio from './Radio';
 
 export default {
@@ -82,42 +81,3 @@ export const Example: ComponentStory<typeof Radio> = () => {
 };
 
 Example.storyName = '3 Radios Example';
-
-export const Group: ComponentStory<typeof Radio.Group> = (args) => {
-  const [favoriteColor, setFavoriteColor] = useState('blue');
-
-  const handleFavoriteColorChange = (color: string) => {
-    setFavoriteColor(color);
-  };
-
-  return (
-    <div style={{ padding: 10, display: 'flex', flexDirection: 'column', rowGap: 10 }}>
-      <p style={{ color: 'white' }}>Exemplo de uso do componente Radio com seu interno Group</p>
-      <p style={{ color: 'white' }}>Valor do estado de cor favorita: {favoriteColor}</p>
-
-      <Radio.Group
-        {...args}
-        groupName='favoriteColor'
-        options={[
-          {
-            label: 'Vermelho',
-            labelFor: 'red',
-            value: 'red'
-          },
-          {
-            label: 'Azul',
-            labelFor: 'blue',
-            value: 'blue'
-          },
-          {
-            label: 'Amarelo',
-            labelFor: 'yellow',
-            value: 'yellow'
-          }
-        ]}
-        value={favoriteColor}
-        onChange={handleFavoriteColorChange as RadioGroupProps['onChange']}
-      />
-    </div>
-  );
-};

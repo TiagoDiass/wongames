@@ -44,7 +44,7 @@ const renderComponent = ({ defaultValue }: RenderComponentParams) => {
   };
 };
 
-describe('Component: Radio > CompoundedComponent: Group', () => {
+describe('Component: RadioGroup', () => {
   it('should render correctly', () => {
     renderComponent({});
 

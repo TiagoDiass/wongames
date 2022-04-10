@@ -1,5 +1,4 @@
 import { InputHTMLAttributes } from 'react';
-import RadioGroup, { RadioGroupProps } from './Group/RadioGroup';
 import * as S from './Radio.styles';
 
 type RadioValue = string | ReadonlyArray<string> | number;
@@ -12,21 +11,17 @@ export type RadioProps = {
   value?: RadioValue;
 } & InputHTMLAttributes<HTMLInputElement>;
 
-interface CompoundedRadio extends React.FunctionComponent<RadioProps> {
-  Group: React.FunctionComponent<RadioGroupProps>;
-}
-
 /**
  * Radio input component (Uncontrolled component)
  */
-const Radio: CompoundedRadio = ({
+export default function Radio({
   onCheck,
   label,
   labelFor,
   labelColor = 'white',
   value,
   ...rest
-}: RadioProps) => {
+}: RadioProps) {
   const onChange = () => {
     if (onCheck) {
       onCheck(value);
@@ -44,8 +39,4 @@ const Radio: CompoundedRadio = ({
       )}
     </S.Wrapper>
   );
-};
-
-Radio.Group = RadioGroup;
-
-export default Radio;
+}

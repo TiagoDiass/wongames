@@ -1,5 +1,5 @@
 import * as S from './RadioGroup.styles';
-import Radio, { RadioProps } from '../Radio';
+import Radio, { RadioProps } from 'components/Radio/Radio';
 import { useState } from 'react';
 
 type RadioValue = RadioProps['value'];
