@@ -5,7 +5,7 @@ import BannerSliderMock from 'components/BannerSlider/BannerSlider.mock';
 import GameCardSliderMock from 'components/GameCardSlider/GameCardSlider.mock';
 import HighlightMock from 'components/Highlight/Highlight.mock';
 
-const getHeading = (headingName: string) => screen.getByRole('heading', { name: headingName });
+const getHeading = (heading: string) => screen.getByRole('heading', { name: heading });
 
 const renderComponent = () => {
   const props = {
