@@ -53,7 +53,7 @@ export default function Footer() {
               <a>Store</a>
             </Link>
             <Link href='/search'>
-              <a>Buscar</a>
+              <a>Explore</a>
             </Link>
           </nav>
         </S.Column>
