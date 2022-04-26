@@ -3,7 +3,21 @@ import TextField from './TextField';
 
 export default {
   title: 'TextField',
-  component: TextField
+  component: TextField,
+  args: {
+    label: 'E-mail',
+    labelFor: 'Email',
+    id: 'Email',
+    initialValue: '',
+    placeholder: 'john.cage@gmail.com'
+  },
+  argTypes: {
+    onInput: { action: 'changed' }
+  }
 } as ComponentMeta<typeof TextField>;
 
-export const Basic: ComponentStory<typeof TextField> = (args) => <TextField {...args} />;
+export const Basic: ComponentStory<typeof TextField> = (args) => (
+  <div style={{ maxWidth: 300, padding: 15 }}>
+    <TextField {...args} />
+  </div>
+);

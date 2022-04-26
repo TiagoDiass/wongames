@@ -1,13 +1,40 @@
+import { ChangeEvent, InputHTMLAttributes, useState } from 'react';
 import * as S from './TextField.styles';
 
+type TextFieldProps = {
+  onInput?: (value: string) => void;
+  label?: string;
+  labelFor?: string;
+  initialValue?: string;
+} & InputHTMLAttributes<HTMLInputElement>;
+
 /**
- * Component that will __________
+ * TextField component that is used for user inputs
  */
-export default function TextField() {
+export default function TextField({
+  label,
+  labelFor = '',
+  initialValue = '',
+  onInput,
+  ...props
+}: TextFieldProps) {
+  const [value, setValue] = useState(initialValue);
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const newValue = event.target.value;
+
+    setValue(newValue);
+
+    !!onInput && onInput(newValue);
+  };
+
   return (
     <S.Wrapper>
-      <h1>TextField</h1>
+      {!!label && <S.Label htmlFor={labelFor}>{label}</S.Label>}
+
+      <S.InputWrapper>
+        <S.Input type='text' id={labelFor} value={value} onChange={handleChange} {...props} />
+      </S.InputWrapper>
     </S.Wrapper>
   );
 }
-
