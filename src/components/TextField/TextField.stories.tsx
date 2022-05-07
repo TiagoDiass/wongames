@@ -6,10 +6,10 @@ export default {
   title: 'TextField',
   component: TextField,
   args: {
-    label: 'E-mail',
-    labelFor: 'Email',
+    label: 'Email',
+    labelFor: 'email',
     initialValue: '',
-    placeholder: 'john.cage@gmail.com'
+    placeholder: 'jhon.doe@gmail.com'
   },
   argTypes: {
     onInput: { action: 'changed' },
@@ -25,7 +25,7 @@ export const Basic: ComponentStory<typeof TextField> = (args) => (
 
 export const WithIcon: ComponentStory<typeof TextField> = (args) => (
   <div style={{ maxWidth: 300, padding: 15 }}>
-    <TextField {...args} />
+    <TextField {...args} autoComplete='off' />
   </div>
 );
 

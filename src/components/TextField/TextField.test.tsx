@@ -32,6 +32,22 @@ describe('<TextField />', () => {
     expect(screen.getByTestId('icon')).toBeInTheDocument();
   });
 
+  it('should render correctly with an icon on the right side', () => {
+    renderWithTheme(
+      <TextField
+        label='Label'
+        labelFor='Field'
+        icon={<Email data-testid='icon' />}
+        iconPosition='right'
+      />
+    );
+
+    expect(screen.getByLabelText('Label').parentElement).toHaveStyle({
+      display: 'flex',
+      flexDirection: 'row-reverse'
+    });
+  });
+
   it('should call props.onInput correctly when input value changes', async () => {
     const onInput = jest.fn();
     renderWithTheme(

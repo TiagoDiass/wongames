@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { TextFieldProps } from './TextField';
 
 export const Wrapper = styled.div``;
 
@@ -10,12 +11,20 @@ export const Label = styled.label`
   `}
 `;
 
-export const InputWrapper = styled.div`
-  ${({ theme }) => css`
+const inputWrapperModifiers = {
+  iconOnRight: () => css`
+    flex-direction: row-reverse;
+  `
+};
+
+type InputWrapperProps = Pick<TextFieldProps, 'iconPosition'>;
+
+export const InputWrapper = styled.div<InputWrapperProps>`
+  ${({ theme, iconPosition }) => css`
     display: flex;
     background: ${theme.colors.lightGray};
     border-radius: 0.2rem;
-    padding: 0 ${theme.spacings.xsmall};
+    padding: 0 ${theme.spacings.xxsmall};
     border: 0.2rem solid;
     border-color: ${theme.colors.lightGray};
 
@@ -24,6 +33,8 @@ export const InputWrapper = styled.div`
     &:focus-within {
       box-shadow: 0 0 0.5rem ${theme.colors.primary};
     }
+
+    ${iconPosition === 'right' && inputWrapperModifiers.iconOnRight()}
   `}
 `;
 
