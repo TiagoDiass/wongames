@@ -57,6 +57,28 @@ describe('<TextField />', () => {
     expect(screen.getByRole('textbox')).toBeDisabled();
   });
 
+  it.todo('checar o aria-disabled no teste de disabled');
+
+  it('should render correctly with an accessible error', () => {
+    const inputId = 'email';
+    const errorMessage = 'Please fill out this field';
+
+    const { container } = renderWithTheme(
+      <TextField label='Label' labelFor={inputId} error={errorMessage} />
+    );
+
+    const errorElement = screen.getByText(errorMessage);
+    const inputElement = screen.getByRole('textbox', { name: 'Label' });
+
+    expect(inputElement).toHaveAttribute('aria-invalid', 'true');
+    expect(inputElement).toHaveAttribute('aria-errormessage', `${inputId}-error`);
+
+    expect(errorElement).toBeInTheDocument();
+    expect(errorElement).toHaveAttribute('id', `${inputId}-error`);
+
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
   it('should call props.onInput correctly when input value changes', async () => {
     const onInput = jest.fn();
     renderWithTheme(

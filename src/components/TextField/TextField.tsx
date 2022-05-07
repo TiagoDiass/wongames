@@ -7,6 +7,13 @@ export type TextFieldProps = {
   labelFor?: string;
   initialValue?: string;
   disabled?: boolean;
+
+  /**
+   * Error message to let the user know that there is an error with the provided input.
+   *
+   * PS: you should provide the `labelFor` prop when using this error prop, to make the component more accessible
+   */
+  error?: string;
   icon?: React.ReactNode;
   iconPosition?: 'left' | 'right';
 } & InputHTMLAttributes<HTMLInputElement>;
@@ -16,10 +23,11 @@ export type TextFieldProps = {
  */
 export default function TextField({
   label,
-  labelFor = '',
+  labelFor,
   initialValue = '',
   onInput,
   disabled = false,
+  error,
   icon,
   iconPosition = 'left',
   ...props
@@ -34,8 +42,11 @@ export default function TextField({
     !!onInput && onInput(newValue);
   };
 
+  const hasError = !!error;
+  const errorElementId = labelFor && `${labelFor}-error`;
+
   return (
-    <S.Wrapper disabled={disabled}>
+    <S.Wrapper disabled={disabled} hasError={hasError}>
       {!!label && <S.Label htmlFor={labelFor}>{label}</S.Label>}
 
       <S.InputWrapper iconPosition={iconPosition}>
@@ -46,9 +57,13 @@ export default function TextField({
           value={value}
           onChange={handleChange}
           disabled={disabled}
+          aria-invalid={hasError ? 'true' : 'false'}
+          aria-errormessage={errorElementId}
           {...props}
         />
       </S.InputWrapper>
+
+      {hasError && <S.Error id={errorElementId}>{error}</S.Error>}
     </S.Wrapper>
   );
 }

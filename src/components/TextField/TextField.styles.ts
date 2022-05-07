@@ -11,11 +11,32 @@ const wrapperModifiers = {
         color: currentColor;
       }
     }
+  `,
+
+  withError: (theme: DefaultTheme) => css`
+    ${Label}, ${Icon} {
+      color: ${theme.colors.red};
+    }
+
+    ${InputWrapper} {
+      border: 1px solid ${theme.colors.red};
+
+      &:focus-within {
+        border: 2px solid ${theme.colors.red};
+        box-shadow: none;
+      }
+    }
   `
 };
 
-export const Wrapper = styled.div<Pick<TextFieldProps, 'disabled'>>`
-  ${({ theme, disabled }) => css`
+type WrapperProps = {
+  disabled: TextFieldProps['disabled'];
+  hasError: boolean;
+};
+
+export const Wrapper = styled.div<WrapperProps>`
+  ${({ theme, disabled, hasError }) => css`
+    ${hasError && wrapperModifiers.withError(theme)}
     ${disabled && wrapperModifiers.disabled(theme)}
   `}
 `;
@@ -45,10 +66,10 @@ export const InputWrapper = styled.div<InputWrapperProps>`
     border: 0.2rem solid;
     border-color: ${theme.colors.lightGray};
 
-    transition: all ${theme.transition.default};
+    transition: box-shadow ${theme.transition.default};
 
     &:focus-within {
-      box-shadow: 0 0 0.5rem ${theme.colors.primary};
+      border: 1px solid ${theme.colors.primary};
     }
 
     ${iconPosition === 'right' && inputWrapperModifiers.iconOnRight()}
@@ -77,5 +98,12 @@ export const Icon = styled.div`
     & > svg {
       width: 100%;
     }
+  `}
+`;
+
+export const Error = styled.span`
+  ${({ theme }) => css`
+    color: ${theme.colors.red};
+    font-size: ${theme.font.sizes.xsmall};
   `}
 `;

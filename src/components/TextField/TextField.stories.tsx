@@ -43,3 +43,14 @@ Disabled.args = {
   disabled: true,
   value: 'tiago@email.com'
 };
+
+export const WithError: ComponentStory<typeof TextField> = (args) => (
+  <div style={{ maxWidth: 300, padding: 15 }}>
+    <TextField {...args} />
+  </div>
+);
+
+WithError.args = {
+  error: 'Invalid email',
+  icon: <EmailIcon />
+};
