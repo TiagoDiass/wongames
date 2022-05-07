@@ -3,7 +3,7 @@ import { Email as EmailIcon } from 'styled-icons/material-outlined';
 import TextField from './TextField';
 
 export default {
-  title: 'TextField',
+  title: 'Form/TextField',
   component: TextField,
   args: {
     label: 'Email',

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import RadioGroup, { RadioGroupProps } from './RadioGroup';
 
 export default {
-  title: 'RadioGroup',
+  title: 'Form/RadioGroup',
   component: RadioGroup,
   parameters: {
     layout: 'fullscreen',
