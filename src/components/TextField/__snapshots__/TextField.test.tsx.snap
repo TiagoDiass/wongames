@@ -63,6 +63,7 @@ exports[`<TextField /> should render correctly with an accessible error 1`] = `
     class="c2 c3"
   >
     <input
+      aria-disabled="false"
       aria-errormessage="email-error"
       aria-invalid="true"
       class="c4"

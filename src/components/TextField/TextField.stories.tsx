@@ -52,5 +52,6 @@ export const WithError: ComponentStory<typeof TextField> = (args) => (
 
 WithError.args = {
   error: 'Invalid email',
+  value: 'invalid-email@test.com',
   icon: <EmailIcon />
 };

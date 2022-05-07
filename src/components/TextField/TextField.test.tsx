@@ -54,10 +54,11 @@ describe('<TextField />', () => {
       />
     );
 
-    expect(screen.getByRole('textbox')).toBeDisabled();
-  });
+    const inputElement = screen.getByRole('textbox');
 
-  it.todo('checar o aria-disabled no teste de disabled');
+    expect(inputElement).toBeDisabled();
+    expect(inputElement).toHaveAttribute('aria-disabled', 'true');
+  });
 
   it('should render correctly with an accessible error', () => {
     const inputId = 'email';

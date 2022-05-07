@@ -57,6 +57,7 @@ export default function TextField({
           value={value}
           onChange={handleChange}
           disabled={disabled}
+          aria-disabled={disabled}
           aria-invalid={hasError ? 'true' : 'false'}
           aria-errormessage={errorElementId}
           {...props}
