@@ -6,6 +6,7 @@ export type TextFieldProps = {
   label?: string;
   labelFor?: string;
   initialValue?: string;
+  disabled?: boolean;
   icon?: React.ReactNode;
   iconPosition?: 'left' | 'right';
 } & InputHTMLAttributes<HTMLInputElement>;
@@ -18,6 +19,7 @@ export default function TextField({
   labelFor = '',
   initialValue = '',
   onInput,
+  disabled = false,
   icon,
   iconPosition = 'left',
   ...props
@@ -33,12 +35,19 @@ export default function TextField({
   };
 
   return (
-    <S.Wrapper>
+    <S.Wrapper disabled={disabled}>
       {!!label && <S.Label htmlFor={labelFor}>{label}</S.Label>}
 
       <S.InputWrapper iconPosition={iconPosition}>
         {!!icon && <S.Icon>{icon}</S.Icon>}
-        <S.Input type='text' id={labelFor} value={value} onChange={handleChange} {...props} />
+        <S.Input
+          type='text'
+          id={labelFor}
+          value={value}
+          onChange={handleChange}
+          disabled={disabled}
+          {...props}
+        />
       </S.InputWrapper>
     </S.Wrapper>
   );

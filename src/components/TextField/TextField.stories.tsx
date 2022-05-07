@@ -32,3 +32,14 @@ export const WithIcon: ComponentStory<typeof TextField> = (args) => (
 WithIcon.args = {
   icon: <EmailIcon />
 };
+
+export const Disabled: ComponentStory<typeof TextField> = (args) => (
+  <div style={{ maxWidth: 300, padding: 15 }}>
+    <TextField {...args} />
+  </div>
+);
+
+Disabled.args = {
+  disabled: true,
+  value: 'tiago@email.com'
+};

@@ -43,6 +43,20 @@ describe('<TextField />', () => {
     });
   });
 
+  it('should disable the input when disabled prop is specified', () => {
+    renderWithTheme(
+      <TextField
+        disabled
+        label='Label'
+        labelFor='Field'
+        icon={<EmailIcon />}
+        iconPosition='right'
+      />
+    );
+
+    expect(screen.getByRole('textbox')).toBeDisabled();
+  });
+
   it('should call props.onInput correctly when input value changes', async () => {
     const onInput = jest.fn();
     renderWithTheme(
