@@ -2,10 +2,11 @@ import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { renderWithTheme } from 'utils/test-utils';
 import TextField from './TextField';
+import { Email } from 'styled-icons/material-outlined';
 
 describe('<TextField />', () => {
   it('should render correctly with Label', () => {
-    renderWithTheme(<TextField label='Label' labelFor='Field' id='Field' />);
+    renderWithTheme(<TextField label='Label' labelFor='Field' />);
 
     expect(screen.getByLabelText('Label')).toBeInTheDocument();
   });
@@ -20,6 +21,15 @@ describe('<TextField />', () => {
     renderWithTheme(<TextField placeholder='Type your email in here' />);
 
     expect(screen.getByPlaceholderText('Type your email in here')).toBeInTheDocument();
+  });
+
+  it('should render correctly with an icon', () => {
+    renderWithTheme(
+      <TextField label='Label' labelFor='Field' icon={<Email data-testid='icon' />} />
+    );
+
+    expect(screen.getByLabelText('Label')).toBeInTheDocument();
+    expect(screen.getByTestId('icon')).toBeInTheDocument();
   });
 
   it('should call props.onInput correctly when input value changes', async () => {
