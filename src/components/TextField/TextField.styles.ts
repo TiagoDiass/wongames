@@ -19,6 +19,8 @@ export const InputWrapper = styled.div`
     border: 0.2rem solid;
     border-color: ${theme.colors.lightGray};
 
+    transition: all ${theme.transition.default};
+
     &:focus-within {
       box-shadow: 0 0 0.5rem ${theme.colors.primary};
     }

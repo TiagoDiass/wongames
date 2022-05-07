@@ -7,7 +7,6 @@ export default {
   args: {
     label: 'E-mail',
     labelFor: 'Email',
-    id: 'Email',
     initialValue: '',
     placeholder: 'john.cage@gmail.com'
   },

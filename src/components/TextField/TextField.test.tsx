@@ -36,7 +36,7 @@ describe('<TextField />', () => {
       expect(input).toHaveValue(text);
       expect(onInput).toHaveBeenCalledTimes(text.length);
     });
-    expect(onInput).toHaveBeenCalledWith(text);
+    expect(onInput).toHaveBeenLastCalledWith(text);
   });
 
   it('should be accessible with the tab key', () => {
