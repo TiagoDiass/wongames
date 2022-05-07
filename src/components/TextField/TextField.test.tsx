@@ -2,7 +2,7 @@ import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { renderWithTheme } from 'utils/test-utils';
 import TextField from './TextField';
-import { Email } from 'styled-icons/material-outlined';
+import { Email as EmailIcon } from 'styled-icons/material-outlined';
 
 describe('<TextField />', () => {
   it('should render correctly with Label', () => {
@@ -25,7 +25,7 @@ describe('<TextField />', () => {
 
   it('should render correctly with an icon', () => {
     renderWithTheme(
-      <TextField label='Label' labelFor='Field' icon={<Email data-testid='icon' />} />
+      <TextField label='Label' labelFor='Field' icon={<EmailIcon data-testid='icon' />} />
     );
 
     expect(screen.getByLabelText('Label')).toBeInTheDocument();
@@ -34,12 +34,7 @@ describe('<TextField />', () => {
 
   it('should render correctly with an icon on the right side', () => {
     renderWithTheme(
-      <TextField
-        label='Label'
-        labelFor='Field'
-        icon={<Email data-testid='icon' />}
-        iconPosition='right'
-      />
+      <TextField label='Label' labelFor='Field' icon={<EmailIcon />} iconPosition='right' />
     );
 
     expect(screen.getByLabelText('Label').parentElement).toHaveStyle({
