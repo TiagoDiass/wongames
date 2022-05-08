@@ -84,4 +84,25 @@ describe('Component: Button', () => {
 
     expect(screen.getByRole('link', { name: 'Buy now' })).toHaveAttribute('href', '/link');
   });
+
+  it('should not call onClick and have aria-disabled when button is disabled', async () => {
+    const onClickMock = jest.fn();
+
+    renderWithTheme(
+      <Button onClick={onClickMock} disabled>
+        Buy now
+      </Button>
+    );
+
+    const button = getButton();
+
+    expect(button).toBeDisabled();
+    expect(button).toHaveAttribute('aria-disabled', 'true');
+
+    userEvent.click(button);
+
+    await waitFor(() => {
+      expect(onClickMock).not.toHaveBeenCalled();
+    });
+  });
 });

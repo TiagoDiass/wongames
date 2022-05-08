@@ -11,6 +11,7 @@ export type ButtonProps = {
   minimal?: boolean;
   icon?: React.ReactNode;
   as?: React.ElementType;
+  disabled?: boolean;
 } & ButtonTypes;
 
 /**
@@ -22,10 +23,19 @@ export default function Button({
   fullWidth = false,
   minimal = false,
   icon,
+  disabled = false,
   ...rest
 }: ButtonProps) {
   return (
-    <S.Wrapper size={size} fullWidth={fullWidth} hasIcon={!!icon} minimal={minimal} {...rest}>
+    <S.Wrapper
+      size={size}
+      fullWidth={fullWidth}
+      hasIcon={!!icon}
+      minimal={minimal}
+      disabled={disabled}
+      aria-disabled={disabled || undefined}
+      {...rest}
+    >
       {!!icon && icon}
       {!!children && <span>{children}</span>}
     </S.Wrapper>
