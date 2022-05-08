@@ -12,7 +12,8 @@ export default {
     },
     icon: {
       type: 'symbol'
-    }
+    },
+    onClick: { action: 'clicked' }
   }
 } as ComponentMeta<typeof Button>;
 
