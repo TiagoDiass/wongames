@@ -4,6 +4,8 @@ export const Wrapper = styled.div``;
 
 export const BannerBlock = styled.div``;
 
-export const Subtitle = styled.h3``;
+export const BannerSubtitle = styled.h3``;
+
+export const BannerFooter = styled.p``;
 
 export const Content = styled.main``;
