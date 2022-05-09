@@ -13,24 +13,30 @@ export default function Auth({ title, children }: AuthProps) {
   return (
     <S.Wrapper>
       <S.BannerBlock>
-        <Logo />
+        <S.BannerBlockContent>
+          <Logo id='banner' />
 
-        <Heading>All your favorite games in one place</Heading>
-        <S.BannerSubtitle>
-          <strong>WON</strong> is the best and most complete gaming platform
-        </S.BannerSubtitle>
+          <div>
+            <Heading>All your favorite games in one place</Heading>
+            <S.BannerSubtitle>
+              <strong>WON</strong> is the best and most complete gaming platform
+            </S.BannerSubtitle>
+          </div>
 
-        <S.BannerFooter>Won Games 2020 © Todos os Direitos Reservados</S.BannerFooter>
+          <S.BannerFooter>Won Games 2020 © Todos os Direitos Reservados</S.BannerFooter>
+        </S.BannerBlockContent>
       </S.BannerBlock>
 
-      <S.Content>
-        <Logo color='black' size='large' />
-        <Heading color='black' lineLeft lineColor='secondary'>
-          {title}
-        </Heading>
+      <S.ContentBlock>
+        <S.Content>
+          <Logo color='black' size='large' id='content' />
+          <Heading color='black' lineLeft lineColor='secondary'>
+            {title}
+          </Heading>
 
-        {children}
-      </S.Content>
+          {children}
+        </S.Content>
+      </S.ContentBlock>
     </S.Wrapper>
   );
 }

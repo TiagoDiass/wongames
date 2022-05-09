@@ -4,6 +4,12 @@ import { screen } from '@testing-library/react';
 import theme from 'styles/theme';
 
 describe('Component: Logo', () => {
+  it('should render the logo with the specified id', () => {
+    const { container } = renderWithTheme(<Logo id='test_id' />);
+
+    expect(container.querySelector('#paint_linear_test_id')).toBeInTheDocument();
+  });
+
   it('should render a white label by default', () => {
     renderWithTheme(<Logo />);
     expect(screen.getByLabelText('Won Games').parentElement).toHaveStyle({
