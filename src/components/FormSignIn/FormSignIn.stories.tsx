@@ -6,8 +6,8 @@ export default {
   component: FormSignIn
 } as ComponentMeta<typeof FormSignIn>;
 
-export const Basic: ComponentStory<typeof FormSignIn> = (args) => (
+export const Basic: ComponentStory<typeof FormSignIn> = () => (
   <div style={{ width: 300, margin: 'auto' }}>
-    <FormSignIn {...args} />
+    <FormSignIn />
   </div>
 );
