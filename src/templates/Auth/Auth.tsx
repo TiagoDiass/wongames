@@ -1,4 +1,5 @@
 import { Heading, Logo } from 'components';
+import Link from 'next/link';
 import * as S from './Auth.styles';
 
 type AuthProps = {
@@ -14,7 +15,11 @@ export default function Auth({ title, children }: AuthProps) {
     <S.Wrapper>
       <S.BannerBlock>
         <S.BannerBlockContent>
-          <Logo id='banner' />
+          <Link href='/'>
+            <a>
+              <Logo id='banner' />
+            </a>
+          </Link>
 
           <div>
             <Heading size='huge'>All your favorite games in one place</Heading>
