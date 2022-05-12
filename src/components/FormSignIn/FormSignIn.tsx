@@ -1,4 +1,5 @@
 import { Button, TextField } from 'components';
+import { FormLinkWrapper, FormWrapper } from 'components/Form/Form';
 import Link from 'next/link';
 import { Email as EmailIcon, Lock as LockIcon } from 'styled-icons/material-outlined';
 
@@ -9,7 +10,7 @@ import * as S from './FormSignIn.styles';
  */
 export default function FormSignIn() {
   return (
-    <S.Wrapper>
+    <FormWrapper>
       <form>
         <TextField name='email' placeholder='Email' type='email' icon={<EmailIcon />} />
         <TextField name='password' placeholder='Password' type='password' icon={<LockIcon />} />
@@ -20,13 +21,13 @@ export default function FormSignIn() {
           Sign in now
         </Button>
 
-        <S.FormLinkWrapper>
+        <FormLinkWrapper>
           {"Don't have an account?"}
           <Link href='/sign-up'>
             <a>Sign up</a>
           </Link>
-        </S.FormLinkWrapper>
+        </FormLinkWrapper>
       </form>
-    </S.Wrapper>
+    </FormWrapper>
   );
 }

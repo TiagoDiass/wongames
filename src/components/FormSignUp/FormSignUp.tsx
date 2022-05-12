@@ -1,3 +1,4 @@
+import { FormWrapper, FormLinkWrapper } from 'components/Form/Form';
 import { Button, TextField } from 'components';
 import {
   Email as EmailIcon,
@@ -5,7 +6,6 @@ import {
   AccountCircle as AccountCircleIcon
 } from 'styled-icons/material-outlined';
 
-import * as S from './FormSignUp.styles';
 import Link from 'next/link';
 
 /**
@@ -13,7 +13,7 @@ import Link from 'next/link';
  */
 export default function FormSignUp() {
   return (
-    <S.Wrapper>
+    <FormWrapper>
       <form>
         <TextField name='name' placeholder='Name' icon={<AccountCircleIcon />} />
         <TextField name='email' placeholder='Email' type='email' icon={<EmailIcon />} />
@@ -29,13 +29,13 @@ export default function FormSignUp() {
           Sign up now
         </Button>
 
-        <S.FormLinkWrapper>
+        <FormLinkWrapper>
           Already have an account?
           <Link href='/sign-in'>
             <a>Sign in</a>
           </Link>
-        </S.FormLinkWrapper>
+        </FormLinkWrapper>
       </form>
-    </S.Wrapper>
+    </FormWrapper>
   );
 }

@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import * as TextFieldStyles from 'components/TextField/TextField.styles';
 import * as ButtonStyles from 'components/Button/Button.styles';
 
-export const Wrapper = styled.div`
+export const FormWrapper = styled.div`
   ${({ theme }) => css`
     ${TextFieldStyles.Wrapper} {
       margin: ${theme.spacings.xxsmall} 0;
