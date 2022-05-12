@@ -79,13 +79,16 @@ export default function Menu({ username }: MenuProps) {
 
         {!username && (
           <S.RegisterBox>
-            <Button fullWidth size='large'>
-              Log in now
-            </Button>
+            <Link href='/sign-in' passHref>
+              <Button fullWidth size='large' as='a'>
+                Log in now
+              </Button>
+            </Link>
             <span>or</span>
-            <S.SignUpLink href='#' title='Sign up'>
-              Sign up
-            </S.SignUpLink>
+
+            <Link href='/sign-up' passHref>
+              <S.SignUpLink title='Sign up'>Sign up</S.SignUpLink>
+            </Link>
           </S.RegisterBox>
         )}
       </S.MenuFull>

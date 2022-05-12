@@ -57,7 +57,7 @@ describe('Component: Menu', () => {
     expect(getLink('Explore')).toBeInTheDocument();
     expect(getLink('My Account')).not.toBeInTheDocument();
     expect(getLink('Wishlist')).not.toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Log in now' })).toBeInTheDocument();
+    expect(getLink('Log in now')).toBeInTheDocument();
     expect(getLink('Sign up')).toBeInTheDocument();
   });
 

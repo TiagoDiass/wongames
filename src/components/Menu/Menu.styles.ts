@@ -7,6 +7,7 @@ export const Wrapper = styled.menu`
     display: flex;
     align-items: center;
     position: relative;
+    z-index: ${theme.layers.menu};
   `}
 `;
 
@@ -83,13 +84,15 @@ type MenuFullProps = {
 
 export const MenuFull = styled.nav<MenuFullProps>`
   ${({ theme, isMenuOpen }) => css`
+    z-index: ${theme.layers.menu};
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     opacity: ${isMenuOpen ? '1' : '0'};
 
     background: ${theme.colors.white};
-    position: absolute;
+
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
