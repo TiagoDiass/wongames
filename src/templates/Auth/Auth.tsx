@@ -34,7 +34,12 @@ export default function Auth({ title, children }: AuthProps) {
 
       <S.ContentBlock>
         <S.Content>
-          <Logo color='black' size='large' id='content' />
+          <Link href='/'>
+            <a>
+              <Logo id='content' color='black' size='large' />
+            </a>
+          </Link>
+
           <Heading color='black' lineLeft lineColor='secondary'>
             {title}
           </Heading>

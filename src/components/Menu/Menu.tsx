@@ -8,6 +8,7 @@ import { Menu2 as MenuIcon } from 'styled-icons/remix-fill';
 import { Logo, Button } from 'components';
 import { useState } from 'react';
 import { MediaMatch } from 'components';
+import Link from 'next/link';
 
 type MenuProps = {
   username?: string;
@@ -52,7 +53,11 @@ export default function Menu({ username }: MenuProps) {
 
         {!username && (
           <MediaMatch greaterThan='medium'>
-            <Button size='medium'>Sign in</Button>
+            <Link href='/sign-in' passHref>
+              <Button size='medium' as='a'>
+                Sign in
+              </Button>
+            </Link>
           </MediaMatch>
         )}
       </S.MenuGroup>
