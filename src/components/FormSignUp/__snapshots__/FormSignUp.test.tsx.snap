@@ -30,6 +30,13 @@ exports[`Component: FormSignUp should render correctly (fields and secondary lin
   width: 100%;
 }
 
+.c5:-webkit-autofill,
+.c5:-webkit-autofill:hover,
+.c5:-webkit-autofill:focus,
+.c5:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #EAEAEA inset !important;
+}
+
 .c3 {
   display: -webkit-box;
   display: -webkit-flex;

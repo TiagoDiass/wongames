@@ -86,6 +86,14 @@ export const Input = styled.input`
     border: 0;
     outline: none;
     width: 100%;
+
+    /* Removes the autofill styles from browser */
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 30px ${theme.colors.lightGray} inset !important;
+    }
   `}
 `;
 
