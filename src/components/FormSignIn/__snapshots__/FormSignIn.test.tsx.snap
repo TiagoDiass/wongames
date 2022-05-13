@@ -254,7 +254,10 @@ exports[`Component: FormSignIn should render correctly (fields and secondary lin
           Forgot your password?
         </a>
         <button
+          aria-disabled="true"
           class="c7 c8"
+          disabled=""
+          type="button"
         >
           <span>
             Sign in now
