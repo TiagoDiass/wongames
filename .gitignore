@@ -1,5 +1,4 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-# what if I add a comment?
 
 # dependencies
 /node_modules
@@ -34,6 +33,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+#storybook
+/storybook-static
 
 # service worker stuff
 public/sw.js
