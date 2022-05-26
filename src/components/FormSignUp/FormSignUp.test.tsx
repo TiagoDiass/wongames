@@ -19,5 +19,5 @@ describe('Component: FormSignUp', () => {
 
   it.todo('should start with submit button disabled');
 
-  it.todo('should enable submit button when user fill in the form');
+  it.todo('should enable submit button when user fill in the form correctly');
 });
