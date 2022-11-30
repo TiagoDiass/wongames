@@ -315,7 +315,9 @@ exports[`Component: FormSignUp should render correctly (fields and secondary lin
           </div>
         </div>
         <button
+          aria-disabled="true"
           class="c6 c7"
+          disabled=""
         >
           <span>
             Sign up now

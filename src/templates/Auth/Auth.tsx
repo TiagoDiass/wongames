@@ -28,7 +28,7 @@ export default function Auth({ title, children }: AuthProps) {
             </S.BannerSubtitle>
           </div>
 
-          <S.BannerFooter>Won Games 2020 © Todos os Direitos Reservados</S.BannerFooter>
+          <S.BannerFooter>© 2020 Won Games, all rights reserved.</S.BannerFooter>
         </S.BannerBlockContent>
       </S.BannerBlock>
 

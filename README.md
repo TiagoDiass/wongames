@@ -15,3 +15,7 @@
 </p>
 
 ## This branch is being used just to deploy the Storybook of the project :)
+
+### If you want, you can check the Storybook of the project, in there you can see all the components created for the application.
+
+### [Click here to see the Storybook](https://wongames-storybook-tiagodiass.netlify.app/)
