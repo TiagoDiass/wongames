@@ -23,7 +23,7 @@ const GameCardSliderMock: GameCardSliderProps['games'] = [
     price: '$65,00'
   },
   {
-    title: 'Counter Strike: Global Offensive',
+    title: 'CS: Global Offensive',
     developer: 'Valve',
     image:
       'https://assets.propmark.com.br/uploads/2020/11/7ee27e3c7ca9b2434381b2728cedb5a4.CSGO-Operation-10-Details.jpg',

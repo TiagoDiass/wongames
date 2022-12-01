@@ -1,13 +1,5 @@
 import * as S from './Home.styles';
-import {
-  Container,
-  Menu,
-  Footer,
-  Heading,
-  BannerSlider,
-  GameCardSlider,
-  Highlight
-} from 'components';
+import { Container, Menu, Footer, BannerSlider, Showcase } from 'components';
 
 import { BannerSliderProps } from 'components/BannerSlider/BannerSlider';
 import { GameCardSliderProps } from 'components/GameCardSlider/GameCardSlider';
@@ -50,44 +42,21 @@ export default function Home({
       </Container>
 
       <S.SectionNewGames>
-        <Container>
-          <Heading lineLeft lineColor='secondary'>
-            New
-          </Heading>
-
-          <GameCardSlider games={newGames} arrowsColor='black' />
-        </Container>
+        <Showcase title='New' games={newGames} />
       </S.SectionNewGames>
 
-      <Container>
-        <S.SectionMostPopulars>
-          <Heading lineLeft lineColor='secondary'>
-            Most Populars
-          </Heading>
+      <Showcase
+        title='Most Populars'
+        highlightProps={mostPopularHighlight}
+        games={mostPopularGames}
+      />
 
-          <Highlight {...mostPopularHighlight} />
-          <GameCardSlider games={mostPopularGames} />
-        </S.SectionMostPopulars>
+      <S.SectionUpcoming>
+        <Showcase title='Upcoming' games={upcomingGames} />
+        <Showcase highlightProps={upcomingHighlight} games={upcomingMoreGames} />
+      </S.SectionUpcoming>
 
-        <S.SectionUpcoming>
-          <Heading lineLeft lineColor='secondary'>
-            Upcoming
-          </Heading>
-
-          <GameCardSlider games={upcomingGames} />
-          <Highlight {...upcomingHighlight} />
-          <GameCardSlider games={upcomingMoreGames} />
-        </S.SectionUpcoming>
-
-        <S.SectionFreeGames>
-          <Heading lineLeft lineColor='secondary'>
-            Free Games
-          </Heading>
-
-          <Highlight {...freeGamesHighlight} />
-          <GameCardSlider games={freeGames} arrowsColor='white' />
-        </S.SectionFreeGames>
-      </Container>
+      <Showcase title='Free Games' highlightProps={freeGamesHighlight} games={freeGames} />
 
       <S.SectionFooter>
         <Container>

@@ -16,7 +16,6 @@ export { default as Radio } from './Radio/Radio';
 export { default as RadioGroup } from './RadioGroup/RadioGroup';
 export { default as RatingFeedback } from './RatingFeedback/RatingFeedback';
 export { default as Ribbon } from './Ribbon/Ribbon';
+export { default as Showcase } from './Showcase/Showcase';
 export { default as Slider } from './Slider/Slider';
 export { default as TextField } from './TextField/TextField';
-
-// what if I add a comment just to commit?
