@@ -18,7 +18,7 @@ export type HomeTemplateProps = {
 };
 
 /**
- * Page: Home
+ * Template: Home - used in the home page
  */
 export default function Home({
   banners,
