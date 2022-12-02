@@ -1,9 +1,10 @@
 import * as S from './Home.styles';
-import { Container, Menu, Footer, BannerSlider, Showcase } from 'components';
+import { Container, BannerSlider, Showcase } from 'components';
 
 import { BannerSliderProps } from 'components/BannerSlider/BannerSlider';
 import { GameCardSliderProps } from 'components/GameCardSlider/GameCardSlider';
 import { HighlightProps } from 'components/Highlight/Highlight';
+import Base from 'templates/Base/Base';
 
 export type HomeTemplateProps = {
   banners: BannerSliderProps['banners'];
@@ -32,10 +33,8 @@ export default function Home({
   freeGames
 }: HomeTemplateProps) {
   return (
-    <section>
+    <Base>
       <Container>
-        <Menu />
-
         <S.SectionBanner>
           <BannerSlider banners={banners} />
         </S.SectionBanner>
@@ -57,12 +56,6 @@ export default function Home({
       </S.SectionUpcoming>
 
       <Showcase title='Free Games' highlightProps={freeGamesHighlight} games={freeGames} />
-
-      <S.SectionFooter>
-        <Container>
-          <Footer />
-        </Container>
-      </S.SectionFooter>
-    </section>
+    </Base>
   );
 }
