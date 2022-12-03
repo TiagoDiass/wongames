@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { useState } from 'react';
+import { setDefaultBackground } from 'utils/stories-utils';
 import Radio from './Radio';
 
 export default {
@@ -8,9 +9,7 @@ export default {
   component: Radio,
   parameters: {
     layout: 'fullscreen',
-    backgrounds: {
-      default: 'Dark'
-    }
+    ...setDefaultBackground('Dark')
   }
 } as ComponentMeta<typeof Radio>;
 

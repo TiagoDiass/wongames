@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { setDefaultBackground } from 'utils/stories-utils';
 import GameInfo from './GameInfo';
 import GameInfoMock from './GameInfo.mock';
 
@@ -6,9 +7,7 @@ export default {
   title: 'Game/GameInfo',
   component: GameInfo,
   parameters: {
-    backgrounds: {
-      default: 'Dark'
-    }
+    ...setDefaultBackground('Dark')
   },
 
   args: GameInfoMock

@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { setDefaultBackground } from 'utils/stories-utils';
 import BannerSlider from './BannerSlider';
 import BannerSliderMock from './BannerSlider.mock';
 
@@ -7,9 +8,7 @@ export default {
   component: BannerSlider,
   parameters: {
     layout: 'fullscreen',
-    backgrounds: {
-      default: 'Dark'
-    }
+    ...setDefaultBackground('Dark')
   },
   argTypes: {
     banners: {

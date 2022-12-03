@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { setDefaultBackground } from 'utils/stories-utils';
 import Checkbox from './Checkbox';
 
 export default {
@@ -6,9 +7,7 @@ export default {
   component: Checkbox,
   parameters: {
     layout: 'fullscreen',
-    backgrounds: {
-      default: 'Dark'
-    }
+    ...setDefaultBackground('Dark')
   },
   argTypes: {
     onCheck: {

@@ -1,6 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import GameCardSliderMock from 'components/GameCardSlider/GameCardSlider.mock';
 import HighlightMock from 'components/Highlight/Highlight.mock';
+import { setDefaultBackground } from 'utils/stories-utils';
 import Showcase from './Showcase';
 
 export default {
@@ -10,9 +11,7 @@ export default {
 
   parameters: {
     layout: 'fullscreen',
-    backgrounds: {
-      default: 'Dark'
-    }
+    ...setDefaultBackground('Dark')
   }
 } as ComponentMeta<typeof Showcase>;
 
