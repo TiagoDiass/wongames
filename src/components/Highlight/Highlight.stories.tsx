@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { setStoryLayout } from 'utils/stories-utils';
 import Highlight from './Highlight';
 import HighlightMock from './Highlight.mock';
 
@@ -7,7 +8,7 @@ export default {
   component: Highlight,
   args: { ...HighlightMock },
   parameters: {
-    layout: 'fullscreen'
+    ...setStoryLayout('fullscreen')
   }
 } as ComponentMeta<typeof Highlight>;
 

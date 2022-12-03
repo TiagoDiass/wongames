@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { setStoryLayout } from 'utils/stories-utils';
 import Banner from './Banner';
 
 export default {
@@ -14,7 +15,7 @@ export default {
   },
 
   parameters: {
-    layout: 'fullscreen'
+    ...setStoryLayout('fullscreen')
   }
 } as ComponentMeta<typeof Banner>;
 

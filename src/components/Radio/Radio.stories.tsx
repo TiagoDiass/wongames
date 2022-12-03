@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { useState } from 'react';
-import { setDefaultBackground } from 'utils/stories-utils';
+import { setStoryDefaultBackground, setStoryLayout } from 'utils/stories-utils';
 import Radio from './Radio';
 
 export default {
   title: 'Form/Radio',
   component: Radio,
   parameters: {
-    layout: 'fullscreen',
-    ...setDefaultBackground('Dark')
+    ...setStoryLayout('fullscreen'),
+    ...setStoryDefaultBackground('Dark')
   }
 } as ComponentMeta<typeof Radio>;
 

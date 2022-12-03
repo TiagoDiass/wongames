@@ -1,17 +1,16 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import GameCardSliderMock from 'components/GameCardSlider/GameCardSlider.mock';
 import HighlightMock from 'components/Highlight/Highlight.mock';
-import { setDefaultBackground } from 'utils/stories-utils';
+import { setStoryDefaultBackground } from 'utils/stories-utils';
 import Showcase from './Showcase';
 
 export default {
   title: 'Showcase',
   component: Showcase,
-  decorators: [(Story) => <div style={{ margin: '10px auto' }}>{Story()}</div>],
+  decorators: [(Story) => <div style={{}}>{Story()}</div>],
 
   parameters: {
-    layout: 'fullscreen',
-    ...setDefaultBackground('Dark')
+    ...setStoryDefaultBackground('Dark')
   }
 } as ComponentMeta<typeof Showcase>;
 

@@ -1,14 +1,14 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { useState } from 'react';
-import { setDefaultBackground } from 'utils/stories-utils';
+import { setStoryDefaultBackground, setStoryLayout } from 'utils/stories-utils';
 import RadioGroup, { RadioGroupProps } from './RadioGroup';
 
 export default {
   title: 'Form/RadioGroup',
   component: RadioGroup,
   parameters: {
-    layout: 'fullscreen',
-    ...setDefaultBackground('Dark')
+    ...setStoryLayout('fullscreen'),
+    ...setStoryDefaultBackground('Dark')
   }
 } as ComponentMeta<typeof RadioGroup>;
 

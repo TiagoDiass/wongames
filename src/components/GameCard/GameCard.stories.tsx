@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { setDefaultBackground } from 'utils/stories-utils';
+import { setStoryDefaultBackground } from 'utils/stories-utils';
 import GameCard from './GameCard';
 
 export default {
@@ -18,7 +18,7 @@ export default {
     }
   },
   parameters: {
-    ...setDefaultBackground('Dark')
+    ...setStoryDefaultBackground('Dark')
   }
 } as ComponentMeta<typeof GameCard>;
 

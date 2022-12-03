@@ -1,13 +1,13 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { setDefaultBackground } from 'utils/stories-utils';
+import { setStoryDefaultBackground, setStoryLayout } from 'utils/stories-utils';
 import Menu from './Menu';
 
 export default {
   title: 'Menu',
   component: Menu,
   parameters: {
-    layout: 'fullscreen',
-    ...setDefaultBackground('Dark')
+    ...setStoryLayout('fullscreen'),
+    ...setStoryDefaultBackground('Dark')
   }
 } as ComponentMeta<typeof Menu>;
 

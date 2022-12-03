@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { setDefaultBackground } from 'utils/stories-utils';
+import { setStoryDefaultBackground, setStoryLayout } from 'utils/stories-utils';
 import GameCardSlider from './GameCardSlider';
 import GameCardSliderMock from './GameCardSlider.mock';
 
@@ -7,8 +7,8 @@ export default {
   title: 'GameCardSlider',
   component: GameCardSlider,
   parameters: {
-    layout: 'fullscreen',
-    ...setDefaultBackground('Dark')
+    ...setStoryLayout('fullscreen'),
+    ...setStoryDefaultBackground('Dark')
   },
   argTypes: {
     games: {

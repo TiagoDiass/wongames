@@ -1,12 +1,12 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { setDefaultBackground } from 'utils/stories-utils';
+import { setStoryDefaultBackground } from 'utils/stories-utils';
 import Logo from './Logo';
 
 export default {
   title: 'Logo',
   component: Logo,
   parameters: {
-    ...setDefaultBackground('Dark')
+    ...setStoryDefaultBackground('Dark')
   }
 } as ComponentMeta<typeof Logo>;
 

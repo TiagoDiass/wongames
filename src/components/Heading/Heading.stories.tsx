@@ -1,12 +1,12 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { setDefaultBackground } from 'utils/stories-utils';
+import { setStoryDefaultBackground } from 'utils/stories-utils';
 import Heading from './Heading';
 
 export default {
   title: 'Heading',
   component: Heading,
   parameters: {
-    ...setDefaultBackground('Dark')
+    ...setStoryDefaultBackground('Dark')
   },
   argTypes: {
     children: {
