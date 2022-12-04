@@ -38,4 +38,16 @@ describe('Component: GameDetails', () => {
 
     expect(screen.getByText('Nov 21, 2020')).toBeInTheDocument();
   });
+
+  describe('formatted rating renderization', () => {
+    it('should render correctly with rating BR0', () => {
+      renderWithTheme(<GameDetails {...props} rating='BR0' />);
+      expect(screen.getByLabelText('Game rating')).toHaveTextContent('FREE');
+    });
+
+    it('should render correctly with rating BR14', () => {
+      renderWithTheme(<GameDetails {...props} rating='BR14' />);
+      expect(screen.getByLabelText('Game rating')).toHaveTextContent('14+');
+    });
+  });
 });

@@ -7,17 +7,26 @@ import { MediaMatch, Heading } from 'components';
 import * as S from './GameDetails.styles';
 
 type Platform = 'windows' | 'linux' | 'mac';
+type Rating = 'BR0' | 'BR10' | 'BR12' | 'BR14' | 'BR16' | 'BR18';
 
 export type GameDetailsProps = {
   developer: string;
   releaseDate: string;
   platforms: Platform[];
+  publisher: string;
+  rating: Rating;
 };
 
 /**
  * Component used to show some details of a Game (such as platforms, developer, publisher, etc) in the game page
  */
-export default function GameDetails({ developer, releaseDate, platforms }: GameDetailsProps) {
+export default function GameDetails({
+  developer,
+  releaseDate,
+  platforms,
+  publisher,
+  rating
+}: GameDetailsProps) {
   const platformIcons = {
     windows: <WindowsIcon title='Windows' size={18} />,
     linux: <LinuxIcon title='Linux' size={18} />,
@@ -29,6 +38,8 @@ export default function GameDetails({ developer, releaseDate, platforms }: GameD
     month: 'short',
     year: 'numeric'
   }).format(new Date(releaseDate));
+
+  const formattedRating = rating === 'BR0' ? 'FREE' : rating.replace('BR', '').concat('+');
 
   return (
     <S.Wrapper>
@@ -60,12 +71,12 @@ export default function GameDetails({ developer, releaseDate, platforms }: GameD
 
         <S.Block>
           <S.Label>Publisher</S.Label>
-          <S.Description>2K</S.Description>
+          <S.Description>{publisher}</S.Description>
         </S.Block>
 
         <S.Block>
           <S.Label>Rating</S.Label>
-          <S.Description>+18</S.Description>
+          <S.Description aria-label='Game rating'>{formattedRating}</S.Description>
         </S.Block>
 
         <S.Block>
