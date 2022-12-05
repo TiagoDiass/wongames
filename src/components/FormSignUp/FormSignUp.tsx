@@ -30,9 +30,7 @@ export default function FormSignUp() {
       password: '',
       confirmPassword: ''
     },
-
     mode: 'onChange',
-
     resolver: validationSchema
   });
 
