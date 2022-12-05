@@ -16,6 +16,12 @@ export default {
         type: 'inline-check',
         options: ['windows', 'linux', 'mac']
       }
+    },
+    genres: {
+      control: {
+        type: 'inline-check',
+        options: ['Role-playing', 'Adventure']
+      }
     }
   }
 } as ComponentMeta<typeof GameDetails>;
