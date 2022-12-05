@@ -15,6 +15,7 @@ export type GameDetailsProps = {
   platforms: Platform[];
   publisher: string;
   rating: Rating;
+  genres: string[];
 };
 
 /**
@@ -25,7 +26,8 @@ export default function GameDetails({
   releaseDate,
   platforms,
   publisher,
-  rating
+  rating,
+  genres
 }: GameDetailsProps) {
   const platformIcons = {
     windows: <WindowsIcon title='Windows' size={18} />,
@@ -81,7 +83,7 @@ export default function GameDetails({
 
         <S.Block>
           <S.Label>Genres</S.Label>
-          <S.Description>Action / Adventure</S.Description>
+          <S.Description aria-label='Game genres'>{genres.join(' / ')}</S.Description>
         </S.Block>
       </S.Content>
     </S.Wrapper>

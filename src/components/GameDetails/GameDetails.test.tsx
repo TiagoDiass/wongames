@@ -10,7 +10,7 @@ const props: GameDetailsProps = {
   platforms: ['windows', 'mac', 'linux'],
   publisher: 'Walkabout',
   rating: 'BR0',
-  genres: ['Role-playing']
+  genres: ['Action', 'Adventure']
 };
 
 describe('Component: GameDetails', () => {
@@ -49,5 +49,11 @@ describe('Component: GameDetails', () => {
       renderWithTheme(<GameDetails {...props} rating='BR14' />);
       expect(screen.getByLabelText('Game rating')).toHaveTextContent('14+');
     });
+  });
+
+  it('should render genres correctly', () => {
+    renderWithTheme(<GameDetails {...props} />);
+
+    expect(screen.getByLabelText('Game genres')).toHaveTextContent('Action / Adventure');
   });
 });
