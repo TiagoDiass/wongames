@@ -14,29 +14,28 @@ const props: GameDetailsProps = {
 };
 
 describe('Component: GameDetails', () => {
-  it('should render headings correctly', () => {
+  it('should render correctly', () => {
     renderWithTheme(<GameDetails {...props} />);
 
     expect(getHeading('Developer')).toBeInTheDocument();
+    expect(screen.getByText('Different Tales')).toBeInTheDocument();
+
     expect(getHeading('Release Date')).toBeInTheDocument();
+    expect(screen.getByText('Nov 21, 2020')).toBeInTheDocument();
+
     expect(getHeading('Platforms')).toBeInTheDocument();
-    expect(getHeading('Publisher')).toBeInTheDocument();
-    expect(getHeading('Rating')).toBeInTheDocument();
-    expect(getHeading('Genres')).toBeInTheDocument();
-  });
-
-  it('should render platform icons correctly', () => {
-    renderWithTheme(<GameDetails {...props} />);
-
     expect(screen.getByRole('img', { name: 'Windows' })).toBeInTheDocument();
     expect(screen.getByRole('img', { name: 'Linux' })).toBeInTheDocument();
     expect(screen.getByRole('img', { name: 'Mac' })).toBeInTheDocument();
-  });
 
-  it('should render the formatted daily correctly', () => {
-    renderWithTheme(<GameDetails {...props} />);
+    expect(getHeading('Publisher')).toBeInTheDocument();
+    expect(screen.getByText('Walkabout')).toBeInTheDocument();
 
-    expect(screen.getByText('Nov 21, 2020')).toBeInTheDocument();
+    expect(getHeading('Rating')).toBeInTheDocument();
+    expect(screen.getByLabelText('Game rating')).toHaveTextContent('FREE');
+
+    expect(getHeading('Genres')).toBeInTheDocument();
+    expect(screen.getByLabelText('Game genres')).toHaveTextContent('Action / Adventure');
   });
 
   describe('formatted rating renderization', () => {
@@ -49,11 +48,5 @@ describe('Component: GameDetails', () => {
       renderWithTheme(<GameDetails {...props} rating='BR14' />);
       expect(screen.getByLabelText('Game rating')).toHaveTextContent('14+');
     });
-  });
-
-  it('should render genres correctly', () => {
-    renderWithTheme(<GameDetails {...props} />);
-
-    expect(screen.getByLabelText('Game genres')).toHaveTextContent('Action / Adventure');
   });
 });
