@@ -104,4 +104,52 @@ describe('Component: Gallery', () => {
       expect(modal).toHaveAttribute('aria-hidden', 'true');
     });
   });
+
+  it('should navigate to the next image in modal when user press the ArrowRight key', async () => {
+    renderWithTheme(<Gallery images={images} />);
+
+    const modal = screen.getByLabelText('Image modal');
+    // clicking on the first tumb
+    userEvent.click(screen.getByRole('button', { name: `Thumb - Gallery Image 1` }));
+
+    await waitFor(() => {
+      expect(modal).toHaveAttribute('aria-hidden', 'false');
+    });
+
+    const firstImage = await screen.findByRole('img', { name: 'Gallery Image 1' });
+
+    // expect the first image is the active on slick-slider
+    expect(firstImage.parentElement?.parentElement).toHaveClass('slick-active');
+
+    userEvent.keyboard('{ArrowRight}');
+
+    const secondImage = await screen.findByRole('img', { name: 'Gallery Image 2' });
+
+    // expect the second image is the active on slick-slider
+    expect(secondImage.parentElement?.parentElement).toHaveClass('slick-active');
+  });
+
+  it('should navigate back to the previous image in modal when user press the ArrowLeft key', async () => {
+    renderWithTheme(<Gallery images={images} />);
+
+    const modal = screen.getByLabelText('Image modal');
+    // clicking on the second tumb
+    userEvent.click(screen.getByRole('button', { name: `Thumb - Gallery Image 2` }));
+
+    await waitFor(() => {
+      expect(modal).toHaveAttribute('aria-hidden', 'false');
+    });
+
+    const secondImage = await screen.findByRole('img', { name: 'Gallery Image 2' });
+
+    // expect the second image is the active on slick-slider
+    expect(secondImage.parentElement?.parentElement).toHaveClass('slick-active');
+
+    userEvent.keyboard('{ArrowLeft}');
+
+    const firstImage = await screen.findByRole('img', { name: 'Gallery Image 1' });
+
+    // expect the first image is the active on slick-slider
+    expect(firstImage.parentElement?.parentElement).toHaveClass('slick-active');
+  });
 });

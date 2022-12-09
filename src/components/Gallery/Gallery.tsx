@@ -80,13 +80,17 @@ export default function Gallery({ images }: GalleryProps) {
     const handleKeyUp = ({ key }: KeyboardEvent) => {
       if (key === 'Escape') {
         closeImageModal();
+      } else if (key === 'ArrowRight') {
+        sliderRef.current!.slickNext();
+      } else if (key === 'ArrowLeft') {
+        sliderRef.current!.slickPrev();
       }
     };
 
     window.addEventListener('keyup', handleKeyUp);
 
     return () => window.removeEventListener('keyup', handleKeyUp);
-  }, [isImageModalOpen]);
+  }, []);
 
   return (
     <S.Wrapper>
