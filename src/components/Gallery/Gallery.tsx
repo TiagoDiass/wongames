@@ -78,12 +78,16 @@ export default function Gallery({ images }: GalleryProps) {
 
   useEffect(() => {
     const handleKeyUp = ({ key }: KeyboardEvent) => {
-      if (key === 'Escape') {
-        closeImageModal();
-      } else if (key === 'ArrowRight') {
-        sliderRef.current!.slickNext();
-      } else if (key === 'ArrowLeft') {
-        sliderRef.current!.slickPrev();
+      const keysHandlers = {
+        Escape: closeImageModal,
+        ArrowRight: sliderRef.current!.slickNext,
+        ArrowLeft: sliderRef.current!.slickPrev
+      };
+
+      const pressedKey = key as keyof typeof keysHandlers;
+
+      if (keysHandlers[pressedKey]) {
+        keysHandlers[pressedKey]();
       }
     };
 
