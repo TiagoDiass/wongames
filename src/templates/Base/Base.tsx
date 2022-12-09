@@ -10,7 +10,7 @@ type BaseProps = {
  */
 export default function Base({ children }: BaseProps) {
   return (
-    <section>
+    <S.Wrapper>
       <Container>
         <Menu />
       </Container>
@@ -22,6 +22,6 @@ export default function Base({ children }: BaseProps) {
           <Footer />
         </Container>
       </S.FooterSection>
-    </section>
+    </S.Wrapper>
   );
 }
