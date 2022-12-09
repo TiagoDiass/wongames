@@ -43,3 +43,23 @@ export const Wrapper = styled.section`
     `}
   `}
 `;
+
+const modalModifiers = {
+  open: () => css`
+    opacity: 1;
+  `,
+  closed: () => css`
+    opacity: 0;
+    pointer-events: none;
+  `
+};
+
+type ModalProps = {
+  isOpen: boolean;
+};
+
+export const Modal = styled.div<ModalProps>`
+  ${({ isOpen }) => css`
+    ${isOpen ? modalModifiers.open() : modalModifiers.closed()};
+  `}
+`;

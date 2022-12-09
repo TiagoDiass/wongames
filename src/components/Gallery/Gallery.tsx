@@ -1,6 +1,7 @@
 import { ArrowBackIos as ArrowLeft } from '@styled-icons/material-outlined/ArrowBackIos';
 import { ArrowForwardIos as ArrowRight } from '@styled-icons/material-outlined/ArrowForwardIos';
 import Slider, { SliderSettings } from 'components/Slider/Slider';
+import { useState } from 'react';
 
 import * as S from './Gallery.styles';
 
@@ -54,6 +55,10 @@ export type GalleryProps = {
  * Component that mixes the GameCard component with the Slider component
  */
 export default function Gallery({ images }: GalleryProps) {
+  const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+  const openImageModal = () => setIsImageModalOpen(true);
+  // const closeImageModal = () => setIsImageModalOpen(false);
+
   return (
     <S.Wrapper>
       <Slider settings={settings}>
@@ -63,9 +68,16 @@ export default function Gallery({ images }: GalleryProps) {
             role='button'
             src={image.src}
             alt={`Thumb - ${image.label}`}
+            onClick={openImageModal}
           />
         ))}
       </Slider>
+
+      <S.Modal
+        aria-label='Image modal'
+        aria-hidden={!isImageModalOpen}
+        isOpen={isImageModalOpen}
+      ></S.Modal>
     </S.Wrapper>
   );
 }

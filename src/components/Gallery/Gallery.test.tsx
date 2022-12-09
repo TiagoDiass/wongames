@@ -1,5 +1,6 @@
 import Gallery, { GalleryImageProps } from './Gallery';
-import { screen } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { renderWithTheme } from 'utils/test-utils';
 
 const images: GalleryImageProps[] = [
@@ -29,4 +30,22 @@ describe('Component: Gallery', () => {
       images[1].src
     );
   });
+
+  it('should open the image modal when user clicks on a thumbnail', async () => {
+    renderWithTheme(<Gallery images={images} />);
+
+    const modal = screen.getByLabelText('Image modal');
+
+    expect(modal).toHaveAttribute('aria-hidden', 'true');
+    expect(modal).toHaveStyle({ opacity: 0, 'pointer-events': 'none' });
+
+    userEvent.click(screen.getByRole('button', { name: `Thumb - ${images[0].label}` }));
+
+    await waitFor(() => {
+      expect(modal).toHaveAttribute('aria-hidden', 'false');
+      expect(modal).toHaveStyle({ opacity: 1 });
+    });
+  });
+
+  it.todo('describe with close modal (overlay, escape key and close button)');
 });
