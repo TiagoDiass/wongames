@@ -15,7 +15,7 @@ export default function Base({ children }: BaseProps) {
         <Menu />
       </Container>
 
-      {children}
+      <S.Content>{children}</S.Content>
 
       <S.FooterSection>
         <Container>
