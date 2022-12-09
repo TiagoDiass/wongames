@@ -1,7 +1,11 @@
-import { ArrowBackIos as ArrowLeft } from '@styled-icons/material-outlined/ArrowBackIos';
-import { ArrowForwardIos as ArrowRight } from '@styled-icons/material-outlined/ArrowForwardIos';
-import Slider, { SliderSettings } from 'components/Slider/Slider';
 import { useState } from 'react';
+import {
+  Close as CloseIcon,
+  ArrowBackIos as ArrowLeft,
+  ArrowForwardIos as ArrowRight
+} from '@styled-icons/material-outlined';
+
+import Slider, { SliderSettings } from 'components/Slider/Slider';
 
 import * as S from './Gallery.styles';
 
@@ -57,7 +61,7 @@ export type GalleryProps = {
 export default function Gallery({ images }: GalleryProps) {
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
   const openImageModal = () => setIsImageModalOpen(true);
-  // const closeImageModal = () => setIsImageModalOpen(false);
+  const closeImageModal = () => setIsImageModalOpen(false);
 
   return (
     <S.Wrapper>
@@ -73,11 +77,11 @@ export default function Gallery({ images }: GalleryProps) {
         ))}
       </Slider>
 
-      <S.Modal
-        aria-label='Image modal'
-        aria-hidden={!isImageModalOpen}
-        isOpen={isImageModalOpen}
-      ></S.Modal>
+      <S.Modal aria-label='Image modal' aria-hidden={!isImageModalOpen} isOpen={isImageModalOpen}>
+        <S.CloseModal role='button' aria-label='Close image modal' onClick={closeImageModal}>
+          <CloseIcon size={40} />
+        </S.CloseModal>
+      </S.Modal>
     </S.Wrapper>
   );
 }

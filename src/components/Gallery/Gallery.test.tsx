@@ -47,5 +47,22 @@ describe('Component: Gallery', () => {
     });
   });
 
-  it.todo('describe with close modal (overlay, escape key and close button)');
+  it('should close the image modal correctly', async () => {
+    renderWithTheme(<Gallery images={images} />);
+
+    const modal = screen.getByLabelText('Image modal');
+    expect(modal).toHaveAttribute('aria-hidden', 'true');
+
+    userEvent.click(screen.getByRole('button', { name: `Thumb - ${images[0].label}` }));
+
+    await waitFor(() => {
+      expect(modal).toHaveAttribute('aria-hidden', 'false');
+    });
+
+    userEvent.click(screen.getByRole('button', { name: 'Close image modal' }));
+
+    await waitFor(() => {
+      expect(modal).toHaveAttribute('aria-hidden', 'true');
+    });
+  });
 });
