@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Close as CloseIcon,
   ArrowBackIos as ArrowLeft,
@@ -62,6 +62,18 @@ export default function Gallery({ images }: GalleryProps) {
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
   const openImageModal = () => setIsImageModalOpen(true);
   const closeImageModal = () => setIsImageModalOpen(false);
+
+  useEffect(() => {
+    const handleKeyUp = ({ key }: KeyboardEvent) => {
+      if (key === 'Escape') {
+        closeImageModal();
+      }
+    };
+
+    window.addEventListener('keyup', handleKeyUp);
+
+    return () => window.removeEventListener('keyup', handleKeyUp);
+  }, [isImageModalOpen]);
 
   return (
     <S.Wrapper>

@@ -47,7 +47,7 @@ describe('Component: Gallery', () => {
     });
   });
 
-  it('should close the image modal correctly', async () => {
+  it('should close the image modal correctly when user clicks on button or modal overlay', async () => {
     renderWithTheme(<Gallery images={images} />);
 
     const modal = screen.getByLabelText('Image modal');
@@ -60,6 +60,25 @@ describe('Component: Gallery', () => {
     });
 
     userEvent.click(screen.getByRole('button', { name: 'Close image modal' }));
+
+    await waitFor(() => {
+      expect(modal).toHaveAttribute('aria-hidden', 'true');
+    });
+  });
+
+  it('should close the image modal correctly when user press the ESC key', async () => {
+    renderWithTheme(<Gallery images={images} />);
+
+    const modal = screen.getByLabelText('Image modal');
+    expect(modal).toHaveAttribute('aria-hidden', 'true');
+
+    userEvent.click(screen.getByRole('button', { name: `Thumb - ${images[0].label}` }));
+
+    await waitFor(() => {
+      expect(modal).toHaveAttribute('aria-hidden', 'false');
+    });
+
+    userEvent.keyboard('{Escape}');
 
     await waitFor(() => {
       expect(modal).toHaveAttribute('aria-hidden', 'true');
