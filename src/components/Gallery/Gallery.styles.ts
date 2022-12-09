@@ -88,3 +88,10 @@ export const CloseModal = styled.div`
     text-align: right;
   `}
 `;
+
+export const Content = styled.div`
+  width: 100%;
+  max-width: 120rem;
+  max-height: 80rem;
+  margin: auto;
+`;

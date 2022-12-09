@@ -1,22 +1,26 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   Close as CloseIcon,
   ArrowBackIos as ArrowLeft,
   ArrowForwardIos as ArrowRight
 } from '@styled-icons/material-outlined';
+import SlickSlider from 'react-slick';
 
 import Slider, { SliderSettings } from 'components/Slider/Slider';
 
 import * as S from './Gallery.styles';
 
-const settings: SliderSettings = {
-  arrows: true,
-  nextArrow: <ArrowRight aria-label='next image' />,
-  prevArrow: <ArrowLeft aria-label='previous image' />,
-
-  slidesToShow: 4,
+const baseSettings: SliderSettings = {
   infinite: false,
   lazyLoad: 'ondemand',
+  arrows: true,
+  nextArrow: <ArrowRight aria-label='next image' />,
+  prevArrow: <ArrowLeft aria-label='previous image' />
+};
+
+const settings: SliderSettings = {
+  ...baseSettings,
+  slidesToShow: 4,
 
   responsive: [
     {
@@ -46,6 +50,11 @@ const settings: SliderSettings = {
   ]
 };
 
+const imageModalSettings: SliderSettings = {
+  ...baseSettings,
+  slidesToShow: 1
+};
+
 export type GalleryImageProps = {
   src: string;
   label: string;
@@ -59,8 +68,12 @@ export type GalleryProps = {
  * Component that mixes the GameCard component with the Slider component
  */
 export default function Gallery({ images }: GalleryProps) {
+  const sliderRef = useRef<SlickSlider>(null);
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
-  const openImageModal = () => setIsImageModalOpen(true);
+  const openImageModal = (imageIndex: number) => {
+    setIsImageModalOpen(true);
+    sliderRef.current!.slickGoTo(imageIndex, true);
+  };
   const closeImageModal = () => setIsImageModalOpen(false);
 
   useEffect(() => {
@@ -77,14 +90,14 @@ export default function Gallery({ images }: GalleryProps) {
 
   return (
     <S.Wrapper>
-      <Slider settings={settings}>
-        {images.map((image, index) => (
+      <Slider ref={sliderRef} settings={settings}>
+        {images.map((image, imageIndex) => (
           <img
-            key={`thumb-${index}`}
+            key={`thumb-${imageIndex}`}
             role='button'
             src={image.src}
             alt={`Thumb - ${image.label}`}
-            onClick={openImageModal}
+            onClick={() => openImageModal(imageIndex)}
           />
         ))}
       </Slider>
@@ -93,6 +106,14 @@ export default function Gallery({ images }: GalleryProps) {
         <S.CloseModal role='button' aria-label='Close image modal' onClick={closeImageModal}>
           <CloseIcon size={40} />
         </S.CloseModal>
+
+        <S.Content>
+          <Slider ref={sliderRef} settings={imageModalSettings}>
+            {images.map((image, index) => (
+              <img key={`gallery-${index}`} src={image.src} alt={image.label} />
+            ))}
+          </Slider>
+        </S.Content>
       </S.Modal>
     </S.Wrapper>
   );

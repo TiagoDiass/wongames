@@ -47,6 +47,26 @@ describe('Component: Gallery', () => {
     });
   });
 
+  it('should open the image modal with the correct image', async () => {
+    renderWithTheme(<Gallery images={images} />);
+
+    const modal = screen.getByLabelText('Image modal');
+
+    expect(modal).toHaveAttribute('aria-hidden', 'true');
+
+    // clicking on the second tumb
+    userEvent.click(screen.getByRole('button', { name: `Thumb - Gallery Image 2` }));
+
+    await waitFor(() => {
+      expect(modal).toHaveAttribute('aria-hidden', 'false');
+    });
+
+    const currentImage = await screen.findByRole('img', { name: 'Gallery Image 2' });
+
+    // expect the second image is the active on slick-slider
+    expect(currentImage.parentElement?.parentElement).toHaveClass('slick-active');
+  });
+
   it('should close the image modal correctly when user clicks on button or modal overlay', async () => {
     renderWithTheme(<Gallery images={images} />);
 
