@@ -9,7 +9,7 @@ export type GameInfoProps = {
 };
 
 /**
- * Component that will be used to display information about a game
+ * Component used to display some information about a game
  */
 export default function GameInfo({ title, description, price }: GameInfoProps) {
   return (
