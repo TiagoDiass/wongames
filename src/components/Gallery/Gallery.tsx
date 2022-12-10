@@ -65,7 +65,7 @@ export type GalleryProps = {
 };
 
 /**
- * Component that mixes the GameCard component with the Slider component
+ * Component composed of a Slider of images with also a modal for user to see image in a fullscreen view
  */
 export default function Gallery({ images }: GalleryProps) {
   const sliderRef = useRef<SlickSlider>(null);
