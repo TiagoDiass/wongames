@@ -50,12 +50,6 @@ exports[`Component: FormSignIn should render correctly (fields and secondary lin
   filter: brightness(0.9);
 }
 
-.c4 {
-  display: inline-block;
-  vertical-align: middle;
-  overflow: hidden;
-}
-
 .c2 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -144,6 +138,12 @@ exports[`Component: FormSignIn should render correctly (fields and secondary lin
 .c9 a:hover {
   -webkit-filter: brightness(0.85);
   filter: brightness(0.85);
+}
+
+.c4 {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
 }
 
 .c6 {
