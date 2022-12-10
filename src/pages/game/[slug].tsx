@@ -1,3 +1,4 @@
+import GameInfoMock from 'components/GameInfo/GameInfo.mock';
 import { GetStaticPropsResult, GetStaticPathsResult } from 'next';
 import GameTemplate, { GameTemplateProps } from 'templates/Game/Game';
 
@@ -8,7 +9,8 @@ export default function Game(props: GameTemplateProps) {
 export async function getStaticProps(): Promise<GetStaticPropsResult<GameTemplateProps>> {
   return {
     props: {
-      cover: '/img/games/cyberpunk-6.jpeg'
+      cover: '/img/games/cyberpunk-6.jpeg',
+      gameInfo: GameInfoMock
     }
   };
 }
