@@ -43,7 +43,9 @@ const Section = styled(Container).attrs({ as: 'section' })`
   `}
 `;
 
-export const SectionGameInfo = styled(Section)``;
+export const SectionGameInfo = styled(Section)`
+  margin-top: -10rem;
+`;
 
 export const SectionGallery = styled(Section)`
   display: none;
