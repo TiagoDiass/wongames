@@ -1,9 +1,11 @@
 import Base from 'templates/Base/Base';
 
-import { GameInfo, Gallery, RichTextContent, GameDetails } from 'components';
+import { GameInfo, Gallery, RichTextContent, GameDetails, Showcase } from 'components';
 import { GameInfoProps } from 'components/GameInfo/GameInfo';
 import { GalleryImageProps } from 'components/Gallery/Gallery';
 import { GameDetailsProps } from 'components/GameDetails/GameDetails';
+import { GameCardProps } from 'components/GameCard/GameCard';
+import { HighlightProps } from 'components/Highlight/Highlight';
 
 import * as S from './Game.styles';
 
@@ -13,6 +15,9 @@ export type GameTemplateProps = {
   gallery?: GalleryImageProps[];
   description: string;
   details: GameDetailsProps;
+  upcomingGames: GameCardProps[];
+  upcomingHighlight: HighlightProps;
+  recommendedGames: GameCardProps[];
 };
 
 export default function Game({
@@ -20,7 +25,10 @@ export default function Game({
   gameInfo,
   gallery,
   description,
-  details
+  details,
+  upcomingGames,
+  upcomingHighlight,
+  recommendedGames
 }: GameTemplateProps) {
   return (
     <Base>
@@ -40,6 +48,10 @@ export default function Game({
         <S.SectionGameDetails>
           <GameDetails {...details} />
         </S.SectionGameDetails>
+
+        <Showcase title='Upcoming' games={upcomingGames} highlightProps={upcomingHighlight} />
+
+        <Showcase title='You may like these games' games={recommendedGames} />
       </S.Main>
     </Base>
   );
